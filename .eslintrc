@@ -1,0 +1,61 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react", "eslint:recommended"],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "linebreak-style": "off",
+    "no-shadow": "warn",
+    "react/jsx-one-expression-per-line": 0,
+    // "react/jsx-indent": 0,
+    "react/prop-types": 0,
+    "no-trailing-spaces": "error",
+    "no-underscore-dangle": 0,
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "arrow-body-style": "off",
+    "comma-dangle": "off",
+    "no-unused-expressions": "warn",
+    "no-use-before-define": "off",
+    "no-param-reassign": "off",
+    "no-useless-concat": "warn",
+    "block-scoped-var": "error",
+    "consistent-return": "error",
+    "react/destructuring-assignment": 0,
+    "react/jsx-wrap-multilines": "off",
+    "arrow-parens": "off",
+    "react/no-array-index-key": "off",
+    "no-plusplus": "off",
+    "spaced-comment": "warn",
+    "object-curly-newline": "off",
+    "no-unused-vars": "warn",
+    "operator-linebreak": "off",
+    "global-require": "off",
+    "max-len": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off"
+  },
+  "globals": {
+    // "window": true,
+    // "document": true,
+    // "localStorage": true,
+    // "FormData": true,
+    // "FileReader": true,
+    // "Blob": true,
+    // "navigator": true,
+    "fetch": true
+  },
+  "parser": "babel-eslint"
+  // "overrides": [
+  //   {
+  //     "files": ["**/*.js?(x)"],
+  //     "rules": {
+  //       "react-hooks/exhaustive-deps": "off"
+  //     }
+  //   }
+  // ]
+}
