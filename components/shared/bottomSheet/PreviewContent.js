@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import { View } from "react-native";
 
 import StyledText from "../StyledText";
-import CustomButton from "../local/CustomButton";
+import CustomButton from "../CustomButton";
 
 const Wrapper = styled.View`
   /* margin-horizontal: 10px; */

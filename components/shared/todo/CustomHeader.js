@@ -2,11 +2,11 @@ import React from "react";
 import { View, TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 
-import StyledText from "./StyledText";
+import StyledText from "../StyledText";
 
 import arrowBack from "../../assets/images/arrows/arrow-back.svg";
-import NotificationBell from "./local/NotificationBell";
-import theme from "../../styles/theme";
+import NotificationBell from "../local/NotificationBell";
+import theme from "../../../styles/theme";
 
 const CustomHeader = ({
   title,

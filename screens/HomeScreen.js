@@ -15,27 +15,43 @@ import { SvgXml } from "react-native-svg";
 import { StyledText } from "../components/shared";
 import { AuthTextInputExample, SearchBarExample } from "./examples";
 import theme from "../styles/theme";
+import CheckBoxAndRadioExample from "./examples/CheckBoxAndRadioExample";
+import DropdownAlertExample from "./examples/DropdownAlertExample";
 
-const OPTIONS = [
-  { value: "AuthTextInput" },
-  { value: "SearchBar" },
-  { value: "CheckBox & Radio" },
-  { value: "Date Picker" },
-  { value: "Parallax" },
-  { value: "Dropdown" },
-  { value: "Modal" },
-  { value: "TextInput" },
-  { value: "DropdownAlert" },
-];
+// const OPTIONS = [
+//   { value: "AuthTextInput" },
+//   { value: "SearchBar" },
+//   { value: "CheckBox & Radio" },
+//   { value: "Date Picker" },
+//   { value: "Parallax" },
+//   { value: "Dropdown" },
+//   { value: "Modal" },
+//   { value: "TextInput" },
+//   { value: "DropdownAlert" },
+// ];
+
+const OPTIONS = {
+  AuthTextInput: { key: "AuthTextInput" },
+  SearchBar: { key: "SearchBar" },
+  "CB&R": { key: "CheckBox & Radio" },
+  DropdownAlert: { key: "DropdownAlert" },
+  DatePicker: { key: "Date Picker" },
+  Parallax: { key: "Parallax" },
+  Dropdown: { key: "Dropdown" },
+  Modal: { key: "Modal" },
+  TextInput: { key: "TextInput" },
+};
 
 const HomeScreen = () => {
-  const [option, setOption] = React.useState({ value: "AuthTextInput" });
+  const [option, setOption] = React.useState(OPTIONS.AuthTextInput.key);
+  console.log("option", option);
+  console.log("check", option === OPTIONS["CB&R"].key);
   return (
     <View style={{ flex: 1 }}>
       <View>
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={OPTIONS}
+          data={Object.keys(OPTIONS)}
           style={{ margin: 10 }}
           keyExtractor={(item, index) => index.toString()}
           horizontal
@@ -47,15 +63,15 @@ const HomeScreen = () => {
                   borderWidth: 1,
                   padding: 5,
                   backgroundColor:
-                    option.value === item.value
+                    option === OPTIONS[item].key
                       ? theme.colors.primaryColor
                       : "transparent",
                 }}
                 onPress={() => {
-                  setOption(item);
+                  setOption(OPTIONS[item].key);
                 }}
               >
-                <StyledText fontSize={16}>{item.value}</StyledText>
+                <StyledText fontSize={16}>{OPTIONS[item].key}</StyledText>
               </TouchableOpacity>
             );
           }}
@@ -69,8 +85,10 @@ const HomeScreen = () => {
         }}
         keyboardShouldPersistTaps="handled"
       >
-        {option.value === "AuthTextInput" && <AuthTextInputExample />}
-        {option.value === "SearchBar" && <SearchBarExample />}
+        {option === OPTIONS.AuthTextInput.key && <AuthTextInputExample />}
+        {option === OPTIONS.SearchBar.key && <SearchBarExample />}
+        {option === OPTIONS["CB&R"].key && <CheckBoxAndRadioExample />}
+        {option === OPTIONS.DropdownAlert.key && <DropdownAlertExample />}
         {/* <CustomSearchBar /> */}
       </View>
     </View>

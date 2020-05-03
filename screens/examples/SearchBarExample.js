@@ -4,9 +4,9 @@ import {
   CustomSearchBar,
   StyledText,
   BottomSheet,
+  CustomButton,
 } from "../../components/shared";
 import theme from "../../styles/theme";
-import CustomButton from "../../components/shared/local/CustomButton";
 
 const SearchBarExample = () => {
   const [keyword, setKeyword] = useState(null);

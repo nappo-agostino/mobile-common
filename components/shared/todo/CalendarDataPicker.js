@@ -3,15 +3,15 @@ import { View } from "react-native";
 import moment from "moment";
 
 import CalendarPicker from "react-native-calendar-picker";
-import { secondaryColor } from "../../styles/theme";
-import { LanguageContext } from "../../contexts/LanguageContext";
+import { secondaryColor } from "../../../styles/theme";
+import { LanguageContext } from "../../../contexts/LanguageContext";
 
 const CalendarDataPicker = ({
   value,
   startDate,
   endDate,
   onChangeDate,
-  width
+  width,
 }) => {
   const languageContext = useContext(LanguageContext);
 
@@ -38,7 +38,7 @@ const CalendarDataPicker = ({
           "Settembre",
           "Ottobre",
           "Novembre",
-          "Dicembre"
+          "Dicembre",
         ];
       default:
         return [
@@ -53,7 +53,7 @@ const CalendarDataPicker = ({
           "September",
           "October",
           "November",
-          "December"
+          "December",
         ];
     }
   };
@@ -75,15 +75,15 @@ const CalendarDataPicker = ({
         customDatesStyles={[
           {
             date: value || null,
-            style: { backgroundColor: secondaryColor }
+            style: { backgroundColor: secondaryColor },
             // Random colors,
             // style: { backgroundColor: '#' + ('#00000' + ((Math.random() * (1 << 24)) | 0).toString(16)).slice(-6) },
             // style: { color: 'black' } // sets the font color
             // containerStyle: [{ height: 25 }] // extra styling for day container
-          }
+          },
         ]}
         selectedDayStyle={{ backgroundColor: secondaryColor }}
-        onDateChange={date => {
+        onDateChange={(date) => {
           onChangeDate(moment(date).format("YYYY-MM-DD"));
         }}
       />

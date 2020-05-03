@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
-import PropTypes from "prop-types";
 import { View, Platform } from "react-native";
 import { SvgXml } from "react-native-svg";
 import theme from "../../styles/theme";
 import showPassIcon from "../../assets/images/authTextInput/show-password.svg";
 import StyledText from "./StyledText";
 import {
-  textProps,
-  defaultTextProps,
-  containerPropsStyle,
-  borderProps,
   defaultBorderProps,
   textInputProps,
   defaultTextInputProps,

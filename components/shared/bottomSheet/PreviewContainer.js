@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import CustomBottomSheet from "./CustomBottomSheet";
 import PreviewHeader from "./PreviewHeader";
 import PreviewContent from "./PreviewContent";
-import CustomButton from "../local/CustomButton";
+import CustomButton from "../CustomButton";
 
 const PreviewContainer = ({
   children,

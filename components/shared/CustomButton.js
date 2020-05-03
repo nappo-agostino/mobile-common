@@ -2,18 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
-import StyledText from "../StyledText";
-import editIcon from "../../../assets/images/button/edit-icon.svg";
-import deleteIcon from "../../../assets/images/button/delete-icon.svg";
+import StyledText from "./StyledText";
+import editIcon from "../../assets/images/button/edit-icon.svg";
+import deleteIcon from "../../assets/images/button/delete-icon.svg";
 
-import theme from "../../../styles/theme";
+import theme from "../../styles/theme";
 import {
   textChildrenProps,
   defaultTextChildrenProps,
   containerPropsStyle,
   borderProps,
   defaultBorderProps,
-} from "../proptypes";
+} from "./proptypes";
 
 const Button = styled.TouchableOpacity`
   width: ${({ width }) => {
@@ -71,15 +71,12 @@ const CustomButton = (props) => {
       {icon && <SvgXml xml={icon} style={{ marginRight: 5 }} />}
       {text ? (
         <StyledText
-          uppercase
           fontSize={textFontSize}
           fontFamily={textFontFamily}
           color={textColor}
-          style={[
-            capitalize && { textTransform: "capitalize" },
-            uppercase && { textTransform: "uppercase" },
-            { ...textStyle },
-          ]}
+          uppercase={uppercase}
+          capitalize={capitalize}
+          style={textStyle}
         >
           {text}
         </StyledText>

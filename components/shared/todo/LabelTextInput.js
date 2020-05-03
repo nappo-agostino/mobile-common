@@ -1,12 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Platform } from "react-native";
-import {
-  translate,
-  capitalizeFirstLetter,
-  TranslateTextComponent,
-} from "../../../translator";
-import { LanguageContext } from "../../../contexts/LanguageContext";
+
 import StyledText from "../StyledText";
 import theme from "../../../styles/theme";
 
@@ -29,7 +24,7 @@ const Input = styled.TextInput`
   height: 40px;
 `;
 
-const LabelInput = ({
+const LabelTextInput = ({
   error,
   defaultValue,
   labelFontSize,
@@ -61,8 +56,6 @@ const LabelInput = ({
   onLayout,
   disabled,
 }) => {
-  const languageContext = useContext(LanguageContext);
-
   // text input on XIAOMI crash if write email
   const [editable, setEditable] = useState(false);
   useEffect(() => {
@@ -80,7 +73,7 @@ const LabelInput = ({
             alignItems: "center",
           }}
         >
-          <TranslateTextComponent
+          <StyledText
             style={labelTextStyle}
             fontSize={labelFontSize}
             fontFamily={labelFontFamily}
@@ -88,17 +81,17 @@ const LabelInput = ({
             capitalize
           >
             {label}
-          </TranslateTextComponent>
+          </StyledText>
           {info && (
-            <TranslateTextComponent
-              // style={{ paddingLeft: 3 }}
+            <StyledText
+              style={labelTextStyle}
               fontSize={12}
               fontFamily="roboto-regular"
               color={labelColor}
               capitalize
             >
               {info}
-            </TranslateTextComponent>
+            </StyledText>
           )}
           {required && (
             <StyledText
@@ -118,23 +111,17 @@ const LabelInput = ({
           { ...textInputStyle },
           error && { borderColor: theme.colors.red },
         ]}
-        borderColor={borderColor || theme.colors.primaryColor}
+        borderColor={borderColor}
         autoFocus={autoFocus}
         ref={inputRef}
         multiline={multiline}
-        placeholder={
-          placeholder
-            ? capitalizeFirstLetter(
-                translate(placeholder, languageContext.language)
-              )
-            : ""
-        }
-        autoCompleteType={autoCompleteType || "off"}
+        placeholder={placeholder}
+        autoCompleteType={autoCompleteType}
         secureTextEntry={secureTextEntry}
         autoCorrect={autoCorrect}
         autoCapitalize={autoCapitalize}
         returnKeyType={returnKeyType}
-        placeholderTextColor={placeholderTextColor || "#404040"}
+        placeholderTextColor={placeholderTextColor}
         underlineColorAndroid="transparent"
         onChangeText={onChangeText}
         value={value}
@@ -148,4 +135,4 @@ const LabelInput = ({
   );
 };
 
-export default LabelInput;
+export default LabelTextInput;
