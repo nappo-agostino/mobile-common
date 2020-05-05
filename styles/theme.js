@@ -21,6 +21,11 @@ export default {
     errorColor: "#A90D23",
     imageOpacityColor: "#2E241E",
   },
+  appLocal: {
+    primaryColor: "#00B7FF",
+    secondaryColor: "#349BCF",
+  },
+  appMoh: {},
   previewOpacity: 0.7,
   borderCardWith: 1,
 };

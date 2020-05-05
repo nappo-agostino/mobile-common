@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import Parallax from "../../components/shared/parallax/Parallax";
 import { StyledText } from "../../components/shared";
+import { image } from "../../utils/costants";
 
 const ParallaxExample = () => {
   return (
@@ -9,7 +10,7 @@ const ParallaxExample = () => {
       <Parallax
         title="title"
         subtitle="subtitle"
-        image="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+        image={image}
         // parallaxHeaderHeight={300}
       >
         <View>

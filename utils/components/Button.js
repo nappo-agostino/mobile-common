@@ -1,9 +1,9 @@
 import React from "react";
-import { Button as CustomButton } from "../shared";
+import { Button as CustomButton } from "../../components/shared";
 
 const Button = ({ onPress }) => {
   return (
-    <Button
+    <CustomButton
       text="button"
       onPress={onPress}
       textStyle={{ fontWeight: "bold", color: "white" }}

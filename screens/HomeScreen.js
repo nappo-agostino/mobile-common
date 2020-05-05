@@ -23,6 +23,8 @@ import {
   StepperCounterExample,
 } from "./examples";
 import theme from "../styles/theme";
+import DropdownExample from "./examples/DropdownExample";
+import ImageCardExample from "./examples/ImageCardExample";
 
 const OPTIONS = {
   TextInput: { key: "TextInput" },
@@ -32,9 +34,10 @@ const OPTIONS = {
   Parallax: { key: "Parallax" },
   Row: { key: "Row" },
   Stepper: { key: "Stepper" },
-  DatePicker: { key: "Date Picker" },
   Dropdown: { key: "Dropdown" },
+  ImageCard: { key: "ImageCard" },
   Modal: { key: "Modal" },
+  DatePicker: { key: "Date Picker" },
 };
 
 const HomeScreen = () => {
@@ -86,6 +89,8 @@ const HomeScreen = () => {
         {option === OPTIONS.Parallax.key && <ParallaxExample />}
         {option === OPTIONS.Row.key && <RowExample />}
         {option === OPTIONS.Stepper.key && <StepperCounterExample />}
+        {option === OPTIONS.Dropdown.key && <DropdownExample />}
+        {option === OPTIONS.ImageCard.key && <ImageCardExample />}
       </View>
     </View>
   );

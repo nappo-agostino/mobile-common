@@ -9,6 +9,8 @@ import PublicImage from "./PublicImage";
 import WithIconRow from "./WithIconRow";
 import StepperCounter from "./StepperCounter";
 import TextInput from "./textInput/TextInput";
+import Dropdown from "./dropdown/components/Dropdown";
+import ImageCard from "./ImageCard";
 import {
   FiltersComponent,
   PreviewContainer,
@@ -32,6 +34,8 @@ export {
   WithIconRow,
   StepperCounter,
   TextInput,
+  Dropdown,
+  ImageCard,
 };
 export const BottomSheet = {
   FiltersComponent,
