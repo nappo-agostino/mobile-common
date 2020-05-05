@@ -18,7 +18,7 @@ const ImageContainer = styled(LinearGradient)`
   justify-content: center;
   align-items: center;
 `;
-const CustomDropdown = ({
+const Dropdown = ({
   disabled,
   children,
   type,
@@ -387,4 +387,4 @@ const CustomDropdown = ({
   }
 };
 
-export default CustomDropdown;
+export default Dropdown;

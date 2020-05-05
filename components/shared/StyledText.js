@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components/native";
 import theme from "../../styles/theme";
+import { containerPropsStyle, textProps, defaultTextProps } from "./proptypes";
 
 const Text = styled.Text`
   font-family: ${({ fontFamily }) => fontFamily || "space-mono"};

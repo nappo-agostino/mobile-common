@@ -15,7 +15,7 @@ import {
   defaultBorderProps,
 } from "./proptypes";
 
-const Button = styled.TouchableOpacity`
+const StyledButton = styled.TouchableOpacity`
   width: ${({ width }) => {
     if (typeof width === "string") return width;
     return `${width}px`;
@@ -33,7 +33,7 @@ const Button = styled.TouchableOpacity`
   padding-horizontal: 10px;
 `;
 
-const CustomButton = (props) => {
+const Button = (props) => {
   const {
     height,
     width,
@@ -57,7 +57,7 @@ const CustomButton = (props) => {
   } = props;
 
   return (
-    <Button
+    <StyledButton
       {...props}
       height={height}
       width={width}
@@ -83,11 +83,11 @@ const CustomButton = (props) => {
       ) : (
         children
       )}
-    </Button>
+    </StyledButton>
   );
 };
 
-CustomButton.propTypes = {
+Button.propTypes = {
   contentContainerStyle: PropTypes.shape(containerPropsStyle),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -109,7 +109,7 @@ CustomButton.propTypes = {
   capitalize: PropTypes.bool,
 };
 
-CustomButton.defaultProps = {
+Button.defaultProps = {
   containerStyle: null,
   height: 35,
   width: "auto",
@@ -161,4 +161,4 @@ export const EditOrDeleteButton = (props) => {
     </StyledEditOrDeleteButton>
   );
 };
-export default CustomButton;
+export default Button;

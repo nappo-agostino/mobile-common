@@ -1,16 +1,16 @@
 import React from "react";
 import { View, ScrollView } from "react-native";
-import { AuthTextInput } from "../../components/shared";
-import icons from "../../assets/images/authTextInput";
+import { TextInput } from "../../components/shared";
+import icons from "../../assets/images/textInput";
 import theme from "../../styles/theme";
 
-const AuthTextInputExample = () => {
+const TextInputExample = () => {
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [text, setText] = React.useState(null);
   return (
     <View style={{ flex: 1, margin: 10 }}>
-      <AuthTextInput
+      <TextInput
         leftIcon={icons.userIcon}
         placeholder="email"
         returnKeyType="next"
@@ -22,7 +22,7 @@ const AuthTextInputExample = () => {
           setEmail(value);
         }}
       />
-      <AuthTextInput
+      <TextInput
         leftIcon={icons.passwordIcon}
         secureTextEntry
         error="error label"
@@ -41,7 +41,7 @@ const AuthTextInputExample = () => {
         }}
       />
 
-      <AuthTextInput
+      <TextInput
         leftIcon={icons.userIcon}
         withShadow
         placeholder="with shadow"
@@ -53,8 +53,37 @@ const AuthTextInputExample = () => {
           setText(value);
         }}
       />
+
+      <TextInput
+        placeholder="email"
+        returnKeyType="next"
+        autoCapitalize="none"
+        autoCorrect={false}
+        borderWidth={1}
+        borderColor="blue"
+        value={email}
+        onChangeText={(value) => {
+          setEmail(value);
+        }}
+      />
+
+      <TextInput
+        label="with label"
+        labelColor="green"
+        required
+        placeholder="email"
+        returnKeyType="next"
+        autoCapitalize="none"
+        autoCorrect={false}
+        borderWidth={1}
+        borderColor="blue"
+        value={email}
+        onChangeText={(value) => {
+          setEmail(value);
+        }}
+      />
     </View>
   );
 };
 
-export default AuthTextInputExample;
+export default TextInputExample;

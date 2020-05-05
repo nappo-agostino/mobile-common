@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components/native";
 import { View, Platform } from "react-native";
 import { SvgXml } from "react-native-svg";
-import theme from "../../styles/theme";
-import showPassIcon from "../../assets/images/authTextInput/show-password.svg";
-import StyledText from "./StyledText";
+
+import Error from "./Error";
+import SecureText from "./SecureText";
 import {
   defaultBorderProps,
   textInputProps,
   defaultTextInputProps,
-} from "./proptypes";
+} from "../proptypes";
+import Label from "./Label";
 
 const Container = styled.View`
   height: ${({ height }) => height}px;
@@ -35,15 +36,17 @@ const ImageContainer = styled.View`
   width: 30px;
 `;
 
-const PasswordButton = styled.TouchableOpacity`
-  height: 100%;
-  justify-content: center;
-
-  width: 30px;
-`;
-
-const AuthTextInput = (props) => {
+const TextInput = (props) => {
   const {
+    labelTextStyle,
+    labelFontSize,
+    labelFontFamily,
+    labelColor,
+    label,
+    info,
+    required,
+    requiredColor,
+
     contentContainerStyle,
     style,
     borderWidth,
@@ -58,6 +61,7 @@ const AuthTextInput = (props) => {
     fontFamily,
     textStyle,
     error,
+    errorColor,
     multiline,
     placeholder,
     secureTextEntry,
@@ -90,6 +94,18 @@ const AuthTextInput = (props) => {
   };
   return (
     <View style={contentContainerStyle}>
+      {label && (
+        <Label
+          labelTextStyle={labelTextStyle}
+          labelFontSize={labelFontSize}
+          labelFontFamily={labelFontFamily}
+          labelColor={labelColor}
+          label={label}
+          info={info}
+          required={required}
+          requiredColor={requiredColor}
+        />
+      )}
       <Container
         borderRadius={borderRadius}
         height={height}
@@ -141,42 +157,25 @@ const AuthTextInput = (props) => {
           onBlur={onBlur}
         />
         {secureTextEntry && (
-          <PasswordButton activeOpacity={0.7} onPress={handleShowPassword}>
-            <SvgXml
-              xml={showPassIcon}
-              width={25}
-              height={25}
-              fill={showPass ? color : inactiveTintColor}
-            />
-          </PasswordButton>
+          <SecureText
+            onPress={handleShowPassword}
+            color={showPass ? color : inactiveTintColor}
+          />
         )}
       </Container>
-
-      <View style={[{ height: 18, marginLeft: 30 }]}>
-        {error && (
-          <StyledText
-            fontFamily={fontFamily}
-            color={theme.colors.errorColor}
-            fontSize={10}
-            capitalize
-            style={{ paddingTop: 2 }}
-          >
-            {error}
-          </StyledText>
-        )}
-      </View>
+      <Error error={error} errorColor={errorColor} fontFamily={fontFamily} />
     </View>
   );
 };
 
-AuthTextInput.propTypes = {
+TextInput.propTypes = {
   ...textInputProps,
 };
 
-AuthTextInput.defaultProps = {
+TextInput.defaultProps = {
   ...defaultTextInputProps,
   ...defaultBorderProps,
   placeholder: "",
 };
 
-export default AuthTextInput;
+export default TextInput;

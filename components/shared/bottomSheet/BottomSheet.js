@@ -1,17 +1,17 @@
 import React from "react";
-import BottomSheet from "reanimated-bottom-sheet";
+import RBottomSheet from "reanimated-bottom-sheet";
 
-const CustomBottomSheet = ({
+const BottomSheet = ({
   bottomSheetRef,
   children,
   header,
   points,
   initialSnap,
   onCloseEnd,
-  enabledGestureInteraction
+  enabledGestureInteraction,
 }) => {
   return (
-    <BottomSheet
+    <RBottomSheet
       enabledGestureInteraction={enabledGestureInteraction}
       enabledContentTapInteraction={false}
       ref={bottomSheetRef}
@@ -24,4 +24,4 @@ const CustomBottomSheet = ({
   );
 };
 
-export default CustomBottomSheet;
+export default BottomSheet;

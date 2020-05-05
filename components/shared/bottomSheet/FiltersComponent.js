@@ -3,7 +3,8 @@ import { View, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
-import CustomBottomSheet from "./CustomBottomSheet";
+
+import BottomSheet from "./BottomSheet";
 import StyledText from "../StyledText";
 import { textProps, defaultTextProps } from "../proptypes";
 import filterIcon from "../../../assets/images/filter-icon.svg";
@@ -24,7 +25,7 @@ const FiltersComponent = (props) => {
     rightText,
   } = props;
   return (
-    <CustomBottomSheet
+    <BottomSheet
       bottomSheetRef={bottomSheetRef}
       points={[200, 0]}
       initialSnap={1}
@@ -95,7 +96,7 @@ const FiltersComponent = (props) => {
           {children}
         </View>
       </Wrapper>
-    </CustomBottomSheet>
+    </BottomSheet>
   );
 };
 

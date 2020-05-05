@@ -13,39 +13,33 @@ import {
 import { SvgXml } from "react-native-svg";
 
 import { StyledText } from "../components/shared";
-import { AuthTextInputExample, SearchBarExample } from "./examples";
+import {
+  TextInputExample,
+  SearchBarExample,
+  CheckBoxAndRadioExample,
+  DropdownAlertExample,
+  ParallaxExample,
+  RowExample,
+  StepperCounterExample,
+} from "./examples";
 import theme from "../styles/theme";
-import CheckBoxAndRadioExample from "./examples/CheckBoxAndRadioExample";
-import DropdownAlertExample from "./examples/DropdownAlertExample";
-
-// const OPTIONS = [
-//   { value: "AuthTextInput" },
-//   { value: "SearchBar" },
-//   { value: "CheckBox & Radio" },
-//   { value: "Date Picker" },
-//   { value: "Parallax" },
-//   { value: "Dropdown" },
-//   { value: "Modal" },
-//   { value: "TextInput" },
-//   { value: "DropdownAlert" },
-// ];
 
 const OPTIONS = {
-  AuthTextInput: { key: "AuthTextInput" },
+  TextInput: { key: "TextInput" },
   SearchBar: { key: "SearchBar" },
   "CB&R": { key: "CheckBox & Radio" },
   DropdownAlert: { key: "DropdownAlert" },
-  DatePicker: { key: "Date Picker" },
   Parallax: { key: "Parallax" },
+  Row: { key: "Row" },
+  Stepper: { key: "Stepper" },
+  DatePicker: { key: "Date Picker" },
   Dropdown: { key: "Dropdown" },
   Modal: { key: "Modal" },
-  TextInput: { key: "TextInput" },
 };
 
 const HomeScreen = () => {
-  const [option, setOption] = React.useState(OPTIONS.AuthTextInput.key);
-  console.log("option", option);
-  console.log("check", option === OPTIONS["CB&R"].key);
+  const [option, setOption] = React.useState(OPTIONS.TextInput.key);
+
   return (
     <View style={{ flex: 1 }}>
       <View>
@@ -85,11 +79,13 @@ const HomeScreen = () => {
         }}
         keyboardShouldPersistTaps="handled"
       >
-        {option === OPTIONS.AuthTextInput.key && <AuthTextInputExample />}
+        {option === OPTIONS.TextInput.key && <TextInputExample />}
         {option === OPTIONS.SearchBar.key && <SearchBarExample />}
         {option === OPTIONS["CB&R"].key && <CheckBoxAndRadioExample />}
         {option === OPTIONS.DropdownAlert.key && <DropdownAlertExample />}
-        {/* <CustomSearchBar /> */}
+        {option === OPTIONS.Parallax.key && <ParallaxExample />}
+        {option === OPTIONS.Row.key && <RowExample />}
+        {option === OPTIONS.Stepper.key && <StepperCounterExample />}
       </View>
     </View>
   );

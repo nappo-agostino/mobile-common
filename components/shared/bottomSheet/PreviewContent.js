@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components/native";
 import { View } from "react-native";
-
 import StyledText from "../StyledText";
-import CustomButton from "../CustomButton";
+import Button from "../Button";
 
 const Wrapper = styled.View`
   /* margin-horizontal: 10px; */
@@ -36,7 +35,7 @@ const PreviewContent = ({ children, buttonText, onSubmit }) => {
       </View>
 
       {buttonText && (
-        <CustomButton
+        <Button
           backgroundColor="#70C770"
           style={{ marginTop: 10 }}
           onPress={onSubmit}
@@ -72,7 +71,7 @@ const PreviewContent = ({ children, buttonText, onSubmit }) => {
           >
             {buttonText}
           </StyledText>
-        </CustomButton>
+        </Button>
       )}
     </Wrapper>
   );

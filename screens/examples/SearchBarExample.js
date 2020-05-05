@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View } from "react-native";
 import {
-  CustomSearchBar,
+  SearchBar,
   StyledText,
   BottomSheet,
-  CustomButton,
+  Button,
 } from "../../components/shared";
 import theme from "../../styles/theme";
 
@@ -35,12 +35,12 @@ const SearchBarExample = () => {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ margin: 10 }}>
-        <CustomSearchBar
+        <SearchBar
           value={keyword}
           onChangeText={(text) => setKeyword(text)}
           onClear={() => setKeyword(null)}
         />
-        <CustomSearchBar
+        <SearchBar
           value={keyword}
           onChangeText={(text) => setKeyword(text)}
           onClear={() => setKeyword(null)}
@@ -48,7 +48,7 @@ const SearchBarExample = () => {
           isIconFiltersPressed={isIconFiltersPressed}
           onHandleFilterComponent={onHandleFilterComponent}
         />
-        <CustomButton
+        <Button
           text="adapted size"
           backgroundColor="green"
           textColor="white"
@@ -56,7 +56,7 @@ const SearchBarExample = () => {
           containerStyle={{ marginTop: 10 }}
           onPress={onHandleFilterComponent}
         />
-        <CustomButton
+        <Button
           text="capitalize letters"
           backgroundColor="green"
           textColor="white"
@@ -65,7 +65,7 @@ const SearchBarExample = () => {
           onPress={onHandleFilterComponent}
         />
 
-        <CustomButton
+        <Button
           text="uppercase"
           backgroundColor="green"
           textColor="white"
@@ -73,12 +73,12 @@ const SearchBarExample = () => {
           containerStyle={{ marginTop: 10 }}
           onPress={onHandleFilterComponent}
         />
-        <CustomButton
+        <Button
           containerStyle={{ marginTop: 10 }}
           onPress={onHandleFilterComponent}
         >
           <StyledText>text children</StyledText>
-        </CustomButton>
+        </Button>
       </View>
 
       <BottomSheet.FiltersComponent

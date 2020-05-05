@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import theme from "../../styles/theme";
 
+const defaultFontFamily = "space-mono";
+
 export const styleProp = { style: PropTypes.oneOfType([PropTypes.object]) };
 
 // BORDER
@@ -30,7 +32,7 @@ export const textProps = {
 };
 export const defaultTextProps = {
   color: theme.colors.defaultColor,
-  fontFamily: "space-mono",
+  fontFamily: defaultFontFamily,
   fontSize: 14,
 };
 
@@ -43,9 +45,11 @@ export const textChildrenProps = {
 
 export const defaultTextChildrenProps = {
   textColor: theme.colors.defaultColor,
-  textFontFamily: "space-mono",
+  textFontFamily: defaultFontFamily,
   textFontSize: 14,
 };
+
+export const nodeProps = [PropTypes.arrayOf(PropTypes.node), PropTypes.node];
 
 // CONTAINER
 export const containerPropsStyle = {
@@ -69,6 +73,19 @@ export const containerPropsStyle = {
   paddingLeft: PropTypes.number,
 };
 
+export const style = {
+  ...containerPropsStyle,
+  justifyContent: PropTypes.oneOf([
+    "flex-start",
+    "flex-end",
+    "center",
+    "space-between",
+    "space-around",
+    "space-evenly",
+  ]),
+  alignItems: PropTypes.oneOf(["flex-start", "flex-end", "center"]),
+};
+
 export const textInputProps = {
   inputRef: PropTypes.oneOfType([PropTypes.object]),
   height: PropTypes.number,
@@ -81,10 +98,19 @@ export const textInputProps = {
     ...containerPropsStyle,
     ...PropTypes.oneOfType([PropTypes.object]),
   }),
+  labelTextStyle: PropTypes.shape(defaultTextProps),
+  labelFontSize: PropTypes.number,
+  labelFontFamily: PropTypes.string,
+  labelColor: PropTypes.string,
+  label: PropTypes.string,
+  info: PropTypes.string,
+  required: PropTypes.bool,
+  requiredColor: PropTypes.string,
   textStyle: PropTypes.shape(textProps),
   ...textProps,
   color: PropTypes.string,
   error: PropTypes.string,
+  errorColor: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
   activeTintColor: PropTypes.string,
@@ -109,17 +135,26 @@ export const defaultTextInputProps = {
   backgroundColor: "white",
   withShadow: false,
   contentContainerStyle: null,
+  labelTextStyle: null,
+  labelFontSize: 14,
+  labelFontFamily: defaultFontFamily,
+  labelColor: theme.colors.defaultColor,
+  label: null,
+  info: null,
+  required: false,
+  requiredColor: theme.colors.errorColor,
 
   ...defaultTextProps,
   style: null,
   textStyle: defaultTextProps,
-  fontFamily: "space-mono",
-  error: "error",
+  error: null,
+  errorColor: theme.colors.errorColor,
   value: "",
   color: theme.colors.defaultColor,
   activeTintColor: theme.colors.activeTintColor,
   inactiveTintColor: theme.colors.inactiveTintColor,
   placeholderTextColor: theme.colors.defaultPlaceHolderTextColor,
+  placeholder: null,
   multiline: false,
   secureTextEntry: false,
   autoCorrect: true,

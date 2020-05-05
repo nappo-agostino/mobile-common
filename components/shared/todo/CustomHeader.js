@@ -8,7 +8,7 @@ import arrowBack from "../../assets/images/arrows/arrow-back.svg";
 import NotificationBell from "../local/NotificationBell";
 import theme from "../../../styles/theme";
 
-const CustomHeader = ({
+const Header = ({
   title,
   headerStyle,
   titleStyle,
@@ -80,4 +80,4 @@ const CustomHeader = ({
   );
 };
 
-export default CustomHeader;
+export default Header;

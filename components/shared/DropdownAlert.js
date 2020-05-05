@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DropdownAlert from "react-native-dropdownalert";
+import RNDropdownAlert from "react-native-dropdownalert";
 import { textProps, defaultTextProps } from "./proptypes";
 
-const CustomDropdownAlert = (props) => {
+const DropdownAlert = (props) => {
   const {
     dropDownAlertRef,
     titleStyle,
@@ -12,7 +12,7 @@ const CustomDropdownAlert = (props) => {
     renderImage,
   } = props;
   return (
-    <DropdownAlert
+    <RNDropdownAlert
       zIndex={1}
       renderImage={renderImage}
       updateStatusBar={false}
@@ -29,7 +29,7 @@ const CustomDropdownAlert = (props) => {
   );
 };
 
-CustomDropdownAlert.propTypes = {
+DropdownAlert.propTypes = {
   dropDownAlertRef: PropTypes.oneOfType([PropTypes.object]).isRequired,
   closeInterval: PropTypes.number,
   textStyle: PropTypes.shape({ ...textProps, textAlign: PropTypes.string }),
@@ -37,11 +37,11 @@ CustomDropdownAlert.propTypes = {
   renderImage: PropTypes.func,
 };
 
-CustomDropdownAlert.defaultProps = {
+DropdownAlert.defaultProps = {
   closeInterval: 3000,
   textStyle: { ...defaultTextProps, textAlign: "center", color: "white" },
   messageStyle: { ...defaultTextProps, textAlign: "center", color: "white" },
   renderImage: () => null,
 };
 
-export default CustomDropdownAlert;
+export default DropdownAlert;

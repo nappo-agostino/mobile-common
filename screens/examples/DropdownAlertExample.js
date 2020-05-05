@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { View } from "react-native";
-import { CustomDropdownAlert, StyledText } from "../../components/shared";
+import { DropdownAlert, StyledText } from "../../components/shared";
 import Button from "../../components/utils/Button";
 
 const DropdownAlertExample = () => {
@@ -16,7 +16,7 @@ const DropdownAlertExample = () => {
 
   return (
     <>
-      <CustomDropdownAlert dropDownAlertRef={dropDownAlertRef} />
+      <DropdownAlert dropDownAlertRef={dropDownAlertRef} />
       <StyledText color="green">test</StyledText>
       <View style={{ flex: 1, margin: 20 }}>
         <Button

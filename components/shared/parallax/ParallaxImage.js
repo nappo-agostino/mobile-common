@@ -1,10 +1,32 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { DEVICE_HEIGHT } from "../../../utils/dimension";
-import { getImage } from "../../utils/utilsFunctions";
 import StyledText from "../StyledText";
+import theme from "../../../styles/theme";
+import PublicImage from "../PublicImage";
 
-const ParallaxImage = ({ image, title, subtitle, notificationStyle }) => {
+export const getImage = (image, imageStyle) => {
+  if (image) {
+    return typeof image === "object" ? (
+      <PublicImage imagePath={image.path} imageStyle={imageStyle} />
+    ) : (
+      <Image
+        source={typeof image === "string" ? { uri: image } : image}
+        style={{ height: "100%", width: "100%", opacity: 0.6, ...imageStyle }}
+      />
+    );
+  }
+  return null;
+};
+
+const ParallaxImage = ({
+  image,
+  title,
+  subTitle,
+  titleStyle,
+  subTitleStyle,
+  imageStyle,
+}) => {
   const titleWords = title?.split(" ");
 
   return (
@@ -13,7 +35,7 @@ const ParallaxImage = ({ image, title, subtitle, notificationStyle }) => {
         style={{
           position: "absolute",
           top:
-            (titleWords?.length > 1 && title?.length > 20) || notificationStyle
+            titleWords?.length > 1 && title?.length > 20
               ? 100 - titleWords?.length * 5
               : 100,
           zIndex: 1,
@@ -21,35 +43,23 @@ const ParallaxImage = ({ image, title, subtitle, notificationStyle }) => {
           alignItems: "center",
         }}
       >
-        {title && subtitle ? (
+        {title && subTitle ? (
           <>
-            <StyledText
-              fontFamily={notificationStyle ? "optima-bold" : "optima-medium"}
-              color="white"
-              fontSize={notificationStyle ? 30 : 20}
-              style={{ textAlign: "center" }}
-              uppercase={notificationStyle}
-            >
+            <StyledText style={{ textAlign: "center", ...titleStyle }}>
               {title}
             </StyledText>
-            <StyledText
-              fontFamily={notificationStyle ? "optima-bold" : "optima-medium"}
-              color="white"
-              fontSize={notificationStyle ? 30 : 15}
-              style={{ textAlign: "center" }}
-              uppercase={notificationStyle}
-            >
-              {subtitle}
+            <StyledText style={{ textAlign: "center", ...subTitleStyle }}>
+              {subTitle}
             </StyledText>
           </>
         ) : (
           title && (
             <StyledText
-              fontFamily="optima-bold"
-              color="white"
-              fontSize={30}
-              uppercase
-              style={{ textAlign: "center", paddingHorizontal: 15 }}
+              style={{
+                textAlign: "center",
+                paddingHorizontal: 15,
+                ...titleStyle,
+              }}
             >
               {title}
             </StyledText>
@@ -57,7 +67,7 @@ const ParallaxImage = ({ image, title, subtitle, notificationStyle }) => {
         )}
       </View>
       <View style={{ backgroundColor: theme.colors.imageOpacityColor }}>
-        {getImage(image)}
+        {getImage(image, imageStyle)}
       </View>
     </View>
   );

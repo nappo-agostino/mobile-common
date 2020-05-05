@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import {
-  CustomCheckBox,
-  StyledText,
-  CustomRadioButton,
-} from "../../components/shared";
+import { CheckBox, StyledText, RadioButton } from "../../components/shared";
 
 const CheckBoxAndRadioExample = (props) => {
   const [checkBox, setCheckBox] = useState(false);
@@ -19,20 +15,20 @@ const CheckBoxAndRadioExample = (props) => {
   };
   return (
     <View style={{ flex: 1, padding: 20 }}>
-      <CustomCheckBox
+      <CheckBox
         isChecked={checkBox}
         onClick={handleCheckBox}
         rightText="check box text"
       />
 
-      <CustomCheckBox
+      <CheckBox
         isChecked={checkBox}
         onClick={handleCheckBox}
         rightText="styled text"
         rightTextStyle={{ fontSize: 20, color: "green" }}
       />
 
-      <CustomCheckBox
+      <CheckBox
         isChecked={checkBox}
         onClick={handleCheckBox}
         rightTextView={
@@ -42,25 +38,25 @@ const CheckBoxAndRadioExample = (props) => {
         }
       />
       <View style={{ flexDirection: "row", marginTop: 20 }}>
-        <CustomRadioButton
+        <RadioButton
           label="radio1"
           isSelected={radio === "radio1"}
           onPress={() => handleRadio("radio1")}
         />
-        <CustomRadioButton
+        <RadioButton
           containerStyle={{ marginHorizontal: 10 }}
           label="radio2"
           textStyle={{ color: "green" }}
           isSelected={radio === "radio2"}
           onPress={() => handleRadio("radio2")}
         />
-        <CustomRadioButton
+        <RadioButton
           label="disabled"
           disabled
           onPress={() => handleRadio("radio2")}
         />
       </View>
-      <CustomRadioButton
+      <RadioButton
         contained
         label="contained radio"
         isSelected={radio === "contained"}

@@ -9,7 +9,6 @@ import theme from "../../styles/theme";
 
 import filterIcon from "../../assets/images/filter-icon.svg";
 import {
-  containerPropsStyle,
   textInputProps,
   defaultTextInputProps,
   defaultSearchBarBorderProps,
@@ -18,8 +17,6 @@ import {
 const Wrapper = styled.View`
   flex-direction: row;
   align-items: center;
-  /* padding-horizontal: 15px; */
-  /* padding-top: 10px; */
 `;
 
 const SearchBarContainer = styled.View`
@@ -33,7 +30,7 @@ const SearchBarContainer = styled.View`
   height: 35px;
 `;
 
-const CustomSearchBar = (props) => {
+const SearchBar = (props) => {
   const {
     contentContainerStyle,
     borderRadius,
@@ -109,11 +106,11 @@ const CustomSearchBar = (props) => {
   );
 };
 
-CustomSearchBar.propTypes = {
+SearchBar.propTypes = {
   ...textInputProps,
 };
 
-CustomSearchBar.defaultProps = {
+SearchBar.defaultProps = {
   ...defaultTextInputProps,
   ...defaultSearchBarBorderProps,
   placeholder: "search here...",
@@ -139,22 +136,22 @@ const SelectedValueContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const SearchBar = ({ value, onPress }) => {
-  return (
-    <Container>
-      <SelectedValueContainer onPress={onPress}>
-        <Ionicons
-          name={Platform.OS === "ios" ? "ios-search" : "md-search"}
-          size={15}
-          color={theme.colors.primaryColor}
-        />
-        {(!value && (
-          <StyledText style={{ marginLeft: 5 }} capitalize>
-            client-card-searchbar-placeholder
-          </StyledText>
-        )) || <StyledText style={{ marginLeft: 5 }}>{value}</StyledText>}
-      </SelectedValueContainer>
-    </Container>
-  );
-};
-export default CustomSearchBar;
+// export const SearchBar = ({ value, onPress }) => {
+//   return (
+//     <Container>
+//       <SelectedValueContainer onPress={onPress}>
+//         <Ionicons
+//           name={Platform.OS === "ios" ? "ios-search" : "md-search"}
+//           size={15}
+//           color={theme.colors.primaryColor}
+//         />
+//         {(!value && (
+//           <StyledText style={{ marginLeft: 5 }} capitalize>
+//             client-card-searchbar-placeholder
+//           </StyledText>
+//         )) || <StyledText style={{ marginLeft: 5 }}>{value}</StyledText>}
+//       </SelectedValueContainer>
+//     </Container>
+//   );
+// };
+export default SearchBar;

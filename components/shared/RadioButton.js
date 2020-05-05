@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import StyledText from "./StyledText";
 import theme from "../../styles/theme";
@@ -12,7 +11,7 @@ const Container = styled.TouchableOpacity`
   margin-bottom: 5px;
 `;
 
-const RadioButton = styled.View`
+const StyledRadioButton = styled.View`
   height: 15px;
   width: 15px;
   border-width: ${({ isSelected, isDisabled }) =>
@@ -23,7 +22,7 @@ const RadioButton = styled.View`
   margin-right: 5px;
 `;
 
-const CustomRadioButton = (props) => {
+const RadioButton = (props) => {
   const {
     contained,
     disabled,
@@ -65,7 +64,7 @@ const CustomRadioButton = (props) => {
       onPress={onPress}
       disabled={disabled}
     >
-      <RadioButton
+      <StyledRadioButton
         isSelected={isSelected}
         isDisabled={disabled}
         borderColor={getColor()}
@@ -85,7 +84,7 @@ const CustomRadioButton = (props) => {
   );
 };
 
-CustomRadioButton.propTypes = {
+RadioButton.propTypes = {
   containerStyle: PropTypes.shape(containerPropsStyle),
   isSelected: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -105,7 +104,7 @@ CustomRadioButton.propTypes = {
   contained: PropTypes.bool,
 };
 
-CustomRadioButton.defaultProps = {
+RadioButton.defaultProps = {
   containerStyle: null,
   isSelected: false,
   disabled: false,
@@ -119,4 +118,4 @@ CustomRadioButton.defaultProps = {
   contained: false,
 };
 
-export default CustomRadioButton;
+export default RadioButton;

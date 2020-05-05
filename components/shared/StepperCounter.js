@@ -1,12 +1,11 @@
 import React from "react";
-import styled, { css } from "styled-components/native";
+import PropTypes from "prop-types";
+import styled from "styled-components/native";
 import { View } from "react-native";
 import { SvgXml } from "react-native-svg";
-import StyledText from "../StyledText";
-import { TranslateTextComponent } from "../../../translator";
-import theme from "../../../styles/theme";
-
-const Container = styled.View``;
+import theme from "../../styles/theme";
+import StyledText from "./StyledText";
+import { textProps, style } from "./proptypes";
 
 const TitleContainer = styled.View`
   flex-direction: row;
@@ -15,13 +14,13 @@ const TitleContainer = styled.View`
 `;
 
 const Stepper = styled.TouchableOpacity`
-  border-radius: 50px;
+  border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ backgroundColor, disabled }) => {
-    if (disabled) return theme.colors.greyIcon;
-    return backgroundColor || theme.colors.secondaryColor;
+    if (disabled) return theme.colors.disabledColor;
+    return backgroundColor;
   }};
-  height: ${(props) => (props.size ? props.size : 28)}px;
-  width: ${(props) => (props.size ? props.size : 28)}px;
+  height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
   align-items: center;
   justify-content: center;
 `;
@@ -29,8 +28,9 @@ const Stepper = styled.TouchableOpacity`
 const StepperCounter = ({
   title,
   titleIcon,
-  titleIconSize = 20,
-  value = 0,
+  titleStyle,
+  titleIconSize,
+  value,
   buttonsColor,
   valueStyle,
   onDecreaseCounter,
@@ -39,9 +39,12 @@ const StepperCounter = ({
   size,
   disabled,
   error,
+  borderRadius,
+  minValue,
+  maxValue,
 }) => {
   return (
-    <Container>
+    <View>
       {(title || titleIcon) && (
         <TitleContainer>
           {titleIcon && (
@@ -52,25 +55,22 @@ const StepperCounter = ({
               style={{ marginRight: 5 }}
             />
           )}
-          {title && (
-            <TranslateTextComponent fontFamily="roboto-medium" capitalize>
-              {title}
-            </TranslateTextComponent>
-          )}
+          {title && <StyledText style={titleStyle}>{title}</StyledText>}
         </TitleContainer>
       )}
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <Stepper
-          disabled={disabled}
+          disabled={disabled || value - 1 < minValue}
           backgroundColor={buttonsColor}
           onPress={onDecreaseCounter}
+          borderRadius={borderRadius}
           style={{ ...buttonStyle }}
           size={size}
         >
           <StyledText
             color="white"
             fontSize={size}
-            // style={Platform.OS === "ios" ? { bottom: 5 } : { paddingBottom: 3 }}
+            style={{ paddingBottom: 5 }}
           >
             -
           </StyledText>
@@ -92,23 +92,56 @@ const StepperCounter = ({
           </StyledText>
         </View>
         <Stepper
-          disabled={disabled}
+          disabled={disabled || value + 1 < maxValue}
           backgroundColor={buttonsColor}
+          borderRadius={borderRadius}
           onPress={onIncreaseCounter}
           style={{ ...buttonStyle }}
           size={size}
         >
-          <StyledText
-            color="white"
-            fontSize={size}
-            // style={Platform.OS === "ios" ? { bottom: 5 } : { paddingBottom: 3 }}
-          >
+          <StyledText color="white" fontSize={size}>
             +
           </StyledText>
         </Stepper>
       </View>
-    </Container>
+    </View>
   );
+};
+
+StepperCounter.propTypes = {
+  title: PropTypes.string,
+  titleIcon: PropTypes.string,
+  titleStyle: PropTypes.shape(textProps),
+  titleIconSize: PropTypes.number,
+  value: PropTypes.number.isRequired,
+  buttonsColor: PropTypes.string,
+  valueStyle: PropTypes.shape(textProps),
+  onDecreaseCounter: PropTypes.func.isRequired,
+  onIncreaseCounter: PropTypes.func.isRequired,
+  buttonStyle: PropTypes.shape(style),
+  size: PropTypes.number,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  borderRadius: PropTypes.number,
+  minValue: PropTypes.number,
+  maxValue: PropTypes.number,
+};
+
+StepperCounter.defaultProps = {
+  title: null,
+  titleIcon: null,
+  titleStyle: null,
+  titleIconSize: 20,
+  buttonsColor: theme.colors.defaultColor,
+  valueStyle: null,
+
+  buttonStyle: null,
+  size: 28,
+  disabled: false,
+  error: false,
+  borderRadius: 50,
+  minValue: 0,
+  maxValue: null,
 };
 
 export default StepperCounter;

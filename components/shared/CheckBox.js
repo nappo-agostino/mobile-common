@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CheckBox from "react-native-check-box";
+import RNCheckBox from "react-native-check-box";
 import theme from "../../styles/theme";
 import StyledText from "./StyledText";
 import { textProps, containerPropsStyle } from "./proptypes";
 
-const CustomCheckBox = (props) => {
+const CheckBox = (props) => {
   const {
     isChecked,
     disabled,
@@ -18,7 +18,7 @@ const CustomCheckBox = (props) => {
     checkedColor,
   } = props;
   return (
-    <CheckBox
+    <RNCheckBox
       style={{ marginLeft: -3, paddingTop: 5, ...containerStyle }}
       uncheckedCheckBoxColor={uncheckedColor}
       checkedCheckBoxColor={checkedColor}
@@ -32,7 +32,7 @@ const CustomCheckBox = (props) => {
   );
 };
 
-CustomCheckBox.propTypes = {
+CheckBox.propTypes = {
   isChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
@@ -48,7 +48,7 @@ CustomCheckBox.propTypes = {
   checkedColor: PropTypes.string,
 };
 
-CustomCheckBox.defaultProps = {
+CheckBox.defaultProps = {
   isChecked: false,
   disabled: false,
   rightText: null,
@@ -59,4 +59,4 @@ CustomCheckBox.defaultProps = {
   checkedColor: theme.colors.activeTintColor,
 };
 
-export default CustomCheckBox;
+export default CheckBox;

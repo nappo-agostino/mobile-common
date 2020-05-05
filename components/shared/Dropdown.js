@@ -3,11 +3,9 @@ import styled from "styled-components/native";
 import ModalDropdown from "react-native-modal-dropdown";
 import { SvgXml } from "react-native-svg";
 import { Platform, TouchableOpacity } from "react-native";
-import theme from "../../../styles/theme";
-import Triangle from "./Triangle";
-import { TranslateTextComponent } from "../../../translator";
-import StyledText from "../StyledText";
-import arrowDown from "../../../assets/images/arrows/arrow-down.svg";
+import theme from "../../styles/theme";
+import StyledText from "./StyledText";
+import arrowDown from "../../assets/images/arrows/arrow-down.svg";
 
 const Wrapper = styled(ModalDropdown).attrs(
   ({ disabled, options, containerWidth, dropdownStyle, color }) => ({

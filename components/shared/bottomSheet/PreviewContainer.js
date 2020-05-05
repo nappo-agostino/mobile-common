@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CustomBottomSheet from "./CustomBottomSheet";
+import BottomSheet from "./BottomSheet";
 import PreviewHeader from "./PreviewHeader";
 import PreviewContent from "./PreviewContent";
-import CustomButton from "../CustomButton";
+import Button from "../Button";
 
 const PreviewContainer = ({
   children,
@@ -15,7 +15,7 @@ const PreviewContainer = ({
   onSubmit,
 }) => {
   return (
-    <CustomBottomSheet
+    <BottomSheet
       bottomSheetRef={bottomSheetRef}
       points={[480, 0]}
       initialSnap={1}
@@ -29,7 +29,7 @@ const PreviewContainer = ({
       <PreviewContent buttonText={buttonText} onSubmit={onSubmit}>
         {children}
       </PreviewContent>
-    </CustomBottomSheet>
+    </BottomSheet>
   );
 };
 
@@ -37,7 +37,7 @@ PreviewContainer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
-    CustomButton,
+    Button,
   ]),
   bottomSheetRef: PropTypes.oneOfType([PropTypes.object]).isRequired,
   headerText: PropTypes.string,

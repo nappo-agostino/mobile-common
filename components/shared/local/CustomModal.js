@@ -62,7 +62,7 @@ const getDefaultHeaderIcon = (headerType) => {
   return <SvgXml width={39} height={39} xml={dangerIcon} />;
 };
 
-const CustomModal = ({
+const Modal = ({
   isVisible,
   windowBackgroundColor = theme.colors.backdropColor,
   overlayBackgroundColor,
@@ -111,4 +111,4 @@ const CustomModal = ({
   );
 };
 
-export default CustomModal;
+export default Modal;
