@@ -20,9 +20,8 @@ const DropdownExample = () => {
         }}
         color={dropdownColor}
         value={dropdownValue?.value}
-        appType={APP_TYPES.APP_LOCAL}
       />
-      <Dropdown
+      {/* <Dropdown
         placeHolder="choose color"
         options={dropdownValues}
         onSelect={(index, value) => {
@@ -57,7 +56,7 @@ const DropdownExample = () => {
           setDropdownColor(value.rowColor);
         }}
         value={dropdownValue?.value}
-      />
+      /> */}
     </View>
   );
 };

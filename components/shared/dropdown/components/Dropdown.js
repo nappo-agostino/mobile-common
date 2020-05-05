@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import ModalDropdown from "react-native-modal-dropdown";
 import { SvgXml } from "react-native-svg";
-import { Platform, TouchableOpacity } from "react-native";
+import { Platform, TouchableOpacity, View } from "react-native";
 import theme from "../../../../styles/theme";
 import StyledText from "../../StyledText";
 import { textProps, style, nodeProps, defaultTextProps } from "../../proptypes";
