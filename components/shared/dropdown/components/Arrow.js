@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SvgXml } from "react-native-svg";
 import arrows from "../../../../assets/images/arrows";
 import theme from "../../../../styles/theme";
@@ -7,7 +7,11 @@ import theme from "../../../../styles/theme";
 const ArrowContainer = styled.View`
   position: absolute;
   right: 0;
-  background-color: ${({ color }) => color};
+
+  background-color: ${({ backgroundColor, contained, arrowContained }) => {
+    if (contained) return backgroundColor;
+    return arrowContained ? backgroundColor : "white";
+  }};
   width: 30px;
   height: 40px;
   align-items: center;
@@ -20,51 +24,47 @@ const Arrow = ({
   iconColor,
   arrowContainerStyle,
   updateArrowContainerWidth,
+  arrowContained,
+  contained,
 }) => {
-  //   const getFillColor = () => {
-  //     switch (appType) {
-  //       case APP_TYPES.APP_LOCAL:
-  //         return "white";
-  //       case APP_TYPES.APP_MOH:
-  //         return "#707071";
-  //       default:
-  //         return theme.colors.defaultColor;
-  //     }
-  //   };
+  const getIconColor = () => {
+    let arrowColor = color;
+    if (!arrowContained) {
+      if (iconColor) {
+        arrowColor = iconColor;
+      }
+    } else {
+      arrowColor = "white";
+    }
+    return arrowColor;
+  };
 
-  //   const getBackGroundColor = () => {
-  //     switch (appType) {
-  //       case APP_TYPES.APP_LOCAL:
-  //         return color;
-  //       case APP_TYPES.APP_MOH:
-  //         return "white";
-  //       default:
-  //         return "white";
+  // const getBackgroundColor = () => {
+  //   let backgroundColor = color;
+  //   if (contained) {
+  //     if (iconColor) {
+  //       arrowColor = iconColor;
   //     }
-  //   };
+  //   } else {
+  //     arrowColor = "white";
+  //   }
+  //   return arrowColor;
+  // };
 
-  //   const getIcon = () => {
-  //     switch (appType) {
-  //       case "app-local":
-  //         return arrows.arrowDownIcon;
-  //       case "app-moh":
-  //         return arrows.arrowDropdown;
-  //       default:
-  //         return arrows.arrowDropdown;
-  //     }
-  //   };
   return (
     <ArrowContainer
-      color={color}
+      arrowContained={arrowContained}
+      contained={contained}
+      backgroundColor={color}
       style={arrowContainerStyle}
       onLayout={(layout) =>
         updateArrowContainerWidth(layout.nativeEvent.layout.width)
       }
     >
       {icon ? (
-        <SvgXml xml={icon} fill={iconColor || "white"} />
+        <SvgXml xml={icon} fill={getIconColor()} />
       ) : (
-        <SvgXml xml={arrows.arrowDownIcon} fill={iconColor || "white"} />
+        <SvgXml xml={arrows.arrowDownIcon} fill={getIconColor()} />
         // <Triangle direction="bottom" color="white" size={6} />
       )}
     </ArrowContainer>

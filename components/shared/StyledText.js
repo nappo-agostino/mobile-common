@@ -8,16 +8,21 @@ const Text = styled.Text`
   font-family: ${({ fontFamily }) => fontFamily || "space-mono"};
   font-size: ${({ fontSize }) => fontSize || 14}px;
   color: ${({ color }) => color || theme.colors.defaultColor};
-  ${({ uppercase, capitalize }) => {
+  /* ${({ uppercase, capitalize }) => {
     if (uppercase) {
       return css`
         text-transform: uppercase;
       `;
     }
+    if (capitalize) {
+      return css`
+        text-transform: capitalize;
+      `;
+    }
     return css`
       text-transform: capitalize;
     `;
-  }}
+  }} */
 `;
 
 const StyledText = (props) => {
@@ -30,14 +35,17 @@ const StyledText = (props) => {
     style,
     children,
   } = props;
+
   return (
     <Text
       fontFamily={fontFamily}
       fontSize={fontSize}
       color={color}
-      capitalize={capitalize}
-      uppercase={uppercase}
-      style={{ ...style, includeFontPadding: false }}
+      style={[
+        { ...style, includeFontPadding: false },
+        capitalize && { textTransform: "capitalize" },
+        uppercase && { textTransform: "uppercase" },
+      ]}
       {...props}
     >
       {children}

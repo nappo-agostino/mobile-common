@@ -15,22 +15,22 @@ const TextInputExample = () => {
         placeholder="email"
         returnKeyType="next"
         autoCapitalize="none"
+        error="error label"
         autoCorrect={false}
         borderWidth={4}
         value={email}
         onChangeText={(value) => {
           setEmail(value);
         }}
+        secureTextEntry
+        appType="APP_MOH"
       />
       <TextInput
         leftIcon={icons.passwordIcon}
+        label="Local App"
         secureTextEntry
         error="error label"
         contentContainerStyle={{ marginVertical: 20 }}
-        textInputContainerStyle={{
-          borderWidth: 2,
-          borderColor: theme.colors.defaultColor,
-        }}
         placeholder="password"
         returnKeyType="next"
         autoCapitalize="none"
@@ -38,6 +38,38 @@ const TextInputExample = () => {
         value={password}
         onChangeText={(value) => {
           setPassword(value);
+        }}
+        appType="APP_LOCAL"
+      />
+
+      <TextInput
+        label="App Moh"
+        required
+        placeholder="Moh App"
+        returnKeyType="next"
+        autoCapitalize="none"
+        autoCorrect={false}
+        borderWidth={1}
+        borderColor="blue"
+        value={email}
+        onChangeText={(value) => {
+          setEmail(value);
+        }}
+        appType="APP_MOH"
+      />
+
+      <TextInput
+        label="No App"
+        required
+        placeholder="no app"
+        returnKeyType="next"
+        autoCapitalize="none"
+        autoCorrect={false}
+        borderWidth={1}
+        borderColor="blue"
+        value={email}
+        onChangeText={(value) => {
+          setEmail(value);
         }}
       />
 
@@ -51,35 +83,6 @@ const TextInputExample = () => {
         value={text}
         onChangeText={(value) => {
           setText(value);
-        }}
-      />
-
-      <TextInput
-        placeholder="email"
-        returnKeyType="next"
-        autoCapitalize="none"
-        autoCorrect={false}
-        borderWidth={1}
-        borderColor="blue"
-        value={email}
-        onChangeText={(value) => {
-          setEmail(value);
-        }}
-      />
-
-      <TextInput
-        label="with label"
-        labelColor="green"
-        required
-        placeholder="email"
-        returnKeyType="next"
-        autoCapitalize="none"
-        autoCorrect={false}
-        borderWidth={1}
-        borderColor="blue"
-        value={email}
-        onChangeText={(value) => {
-          setEmail(value);
         }}
       />
     </View>

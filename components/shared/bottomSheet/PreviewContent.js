@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components/native";
 import { View } from "react-native";
 import StyledText from "../StyledText";
-import Button from "../Button";
+import Button from "../button/components/Button";
 
 const Wrapper = styled.View`
   /* margin-horizontal: 10px; */

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 import { Image, View } from "react-native";
 import theme from "../../styles/theme";
 import StyledText from "./StyledText";
-import { style, textProps, defaultTextProps, nodeProps } from "./proptypes";
+import { style, textProps, nodeProps } from "./proptypes";
 
 const ImageCardButton = styled.TouchableOpacity`
   width: ${({ width }) => {

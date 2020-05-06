@@ -15,13 +15,13 @@ export const borderProps = {
 export const defaultSearchBarBorderProps = {
   borderWidth: 1,
   borderRadius: 1,
-  borderColor: theme.colors.primaryColor,
+  borderColor: theme.default.primaryColor,
 };
 
 export const defaultBorderProps = {
   borderWidth: 0,
   borderRadius: 0,
-  borderColor: theme.colors.defaultColor,
+  borderColor: theme.default.defaultColor,
 };
 
 // STYLED TEXT
@@ -31,7 +31,7 @@ export const textProps = {
   fontSize: PropTypes.number,
 };
 export const defaultTextProps = {
-  color: theme.colors.defaultColor,
+  color: theme.default.defaultColor,
   fontFamily: defaultFontFamily,
   fontSize: 14,
 };
@@ -44,7 +44,7 @@ export const textChildrenProps = {
 };
 
 export const defaultTextChildrenProps = {
-  textColor: theme.colors.defaultColor,
+  textColor: theme.default.defaultColor,
   textFontFamily: defaultFontFamily,
   textFontSize: 14,
 };
@@ -108,7 +108,7 @@ export const textInputProps = {
   requiredColor: PropTypes.string,
   textStyle: PropTypes.shape(textProps),
   ...textProps,
-  color: PropTypes.string,
+  textColor: PropTypes.string,
   error: PropTypes.string,
   errorColor: PropTypes.string,
   value: PropTypes.string,
@@ -138,22 +138,22 @@ export const defaultTextInputProps = {
   labelTextStyle: null,
   labelFontSize: 14,
   labelFontFamily: defaultFontFamily,
-  labelColor: theme.colors.defaultColor,
+  labelColor: theme.default.defaultColor,
   label: null,
   info: null,
   required: false,
-  requiredColor: theme.colors.errorColor,
+  requiredColor: theme.default.errorColor,
 
   ...defaultTextProps,
   style: null,
   textStyle: defaultTextProps,
   error: null,
-  errorColor: theme.colors.errorColor,
+  errorColor: theme.default.errorColor,
   value: "",
-  color: theme.colors.defaultColor,
-  activeTintColor: theme.colors.activeTintColor,
-  inactiveTintColor: theme.colors.inactiveTintColor,
-  placeholderTextColor: theme.colors.defaultPlaceHolderTextColor,
+  textColor: theme.default.defaultColor,
+  activeTintColor: theme.default.activeTintColor,
+  inactiveTintColor: theme.default.inactiveTintColor,
+  placeholderTextColor: theme.default.defaultPlaceHolderTextColor,
   placeholder: null,
   multiline: false,
   secureTextEntry: false,

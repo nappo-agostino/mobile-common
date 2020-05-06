@@ -1,11 +1,12 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 import StyledText from "../../StyledText";
 
-const OptionRow = ({ option }) => {
+const OptionRow = ({ option, rowColor }) => {
   return (
-    <View
+    <TouchableOpacity
+      disabled
       style={{
         height: 50,
         textTransform: "capitalize",
@@ -25,11 +26,11 @@ const OptionRow = ({ option }) => {
       )}
       <StyledText
         style={{ textTransform: "capitalize", ...option.labelStyle }}
-        color={option.rowColor}
+        color={option?.rowColor}
       >
         {option.label}
       </StyledText>
-    </View>
+    </TouchableOpacity>
   );
 };
 

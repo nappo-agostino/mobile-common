@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { Dropdown } from "../../components/shared";
 import theme from "../../styles/theme";
-
 import filterIcon from "../../assets/images/filter-icon.svg";
-import { APP_TYPES } from "../../appTypes";
 
 const DropdownExample = () => {
   const [dropdownValue, setDropdownValue] = useState(null);
@@ -13,15 +11,26 @@ const DropdownExample = () => {
     <View style={{ flex: 1, margin: 15 }}>
       <Dropdown
         placeHolder="choose color"
+        options={dropdownValues1}
+        onSelect={(index, value) => {
+          setDropdownValue(value);
+          setDropdownColor(value.rowColor);
+        }}
+        // color={dropdownColor}
+        value={dropdownValue?.value}
+        appType="APP_MOH"
+      />
+      <Dropdown
+        placeHolder="choose color"
         options={dropdownValues}
         onSelect={(index, value) => {
           setDropdownValue(value);
           setDropdownColor(value.rowColor);
         }}
-        color={dropdownColor}
         value={dropdownValue?.value}
+        appType="APP_LOCAL"
       />
-      {/* <Dropdown
+      <Dropdown
         placeHolder="choose color"
         options={dropdownValues}
         onSelect={(index, value) => {
@@ -56,7 +65,7 @@ const DropdownExample = () => {
           setDropdownColor(value.rowColor);
         }}
         value={dropdownValue?.value}
-      /> */}
+      />
     </View>
   );
 };
@@ -80,6 +89,24 @@ const dropdownValues = [
     value: "blue",
     label: "blue color",
     rowColor: "blue",
+  },
+];
+
+const dropdownValues1 = [
+  {
+    key: "key1",
+    value: "value1",
+    label: "value1",
+  },
+  {
+    key: "key2",
+    value: "value2",
+    label: "value2",
+  },
+  {
+    key: "key3",
+    value: "value3",
+    label: "value3",
   },
 ];
 

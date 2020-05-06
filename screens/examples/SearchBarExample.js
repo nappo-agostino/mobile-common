@@ -48,37 +48,65 @@ const SearchBarExample = () => {
           isIconFiltersPressed={isIconFiltersPressed}
           onHandleFilterComponent={onHandleFilterComponent}
         />
-        <Button
-          text="adapted size"
-          backgroundColor="green"
-          textColor="white"
-          adapt
-          containerStyle={{ marginTop: 10 }}
-          onPress={onHandleFilterComponent}
+        <SearchBar
+          value={keyword}
+          onChangeText={(text) => setKeyword(text)}
+          onClear={() => setKeyword(null)}
+          contentContainerStyle={{ marginTop: 10 }}
+          isIconFiltersPressed={isIconFiltersPressed}
+          onHandleFilterComponent={onHandleFilterComponent}
         />
-        <Button
-          text="capitalize letters"
-          backgroundColor="green"
-          textColor="white"
-          capitalize
-          containerStyle={{ marginTop: 10 }}
-          onPress={onHandleFilterComponent}
+        <SearchBar
+          value={keyword}
+          onChangeText={(text) => setKeyword(text)}
+          onClear={() => setKeyword(null)}
+          contentContainerStyle={{ marginTop: 10 }}
+          borderRadius={4}
+          primaryColor={theme["app-moh"].primaryColor}
+          iconColor="green"
+          onFilterCategoryPress={onHandleFilterComponent}
         />
+        {/* <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <Button
+            text="adapted size"
+            adapt
+            containerStyle={{ marginRight: 10 }}
+            onPress={onHandleFilterComponent}
+            // appType="APP_MOH"
+          />
 
-        <Button
-          text="uppercase"
-          backgroundColor="green"
-          textColor="white"
-          uppercase
+          <Button
+            text="inverted"
+            adapt
+            inverted
+            onPress={onHandleFilterComponent}
+          />
+        </View> */}
+        <View style={{ flexDirection: "row", marginTop: 10 }}>
+          <Button
+            text="adapted size"
+            adapt
+            containerStyle={{ marginRight: 10 }}
+            onPress={onHandleFilterComponent}
+            appType="APP_MOH"
+          />
+          <Button
+            text="adapted size"
+            adapt
+            inverted
+            onPress={onHandleFilterComponent}
+            appType="APP_MOH"
+          />
+        </View>
+        {/* <Button
+          adapt
+          inverted
           containerStyle={{ marginTop: 10 }}
           onPress={onHandleFilterComponent}
-        />
-        <Button
-          containerStyle={{ marginTop: 10 }}
-          onPress={onHandleFilterComponent}
+          appType="APP_MOH"
         >
-          <StyledText>text children</StyledText>
-        </Button>
+          <StyledText>with children</StyledText>
+        </Button> */}
       </View>
 
       <BottomSheet.FiltersComponent

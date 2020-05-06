@@ -1,6 +1,6 @@
 import TabBarIcon from "./TabBarIcon";
 import StyledText from "./StyledText";
-import Button from "./Button";
+import Button from "./button/Button";
 import SearchBar from "./SearchBar";
 import CheckBox from "./CheckBox";
 import RadioButton from "./RadioButton";
@@ -9,7 +9,7 @@ import PublicImage from "./PublicImage";
 import WithIconRow from "./WithIconRow";
 import StepperCounter from "./StepperCounter";
 import TextInput from "./textInput/TextInput";
-import Dropdown from "./dropdown/components/Dropdown";
+import Dropdown from "./dropdown/Dropdown";
 import ImageCard from "./ImageCard";
 import {
   FiltersComponent,

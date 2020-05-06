@@ -4,15 +4,10 @@ import PropTypes from "prop-types";
 import { Ionicons } from "@expo/vector-icons";
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
-import StyledText from "./StyledText";
 import theme from "../../styles/theme";
 
-import filterIcon from "../../assets/images/filter-icon.svg";
-import {
-  textInputProps,
-  defaultTextInputProps,
-  defaultSearchBarBorderProps,
-} from "./proptypes";
+import filtersIcon from "../../assets/images/filter";
+import { textInputProps, defaultTextInputProps } from "./proptypes";
 
 const Wrapper = styled.View`
   flex-direction: row;
@@ -27,16 +22,19 @@ const SearchBarContainer = styled.View`
   border-width: ${({ borderWidth }) => borderWidth}px;
   border-color: ${({ borderColor }) => borderColor};
   border-radius: ${({ borderRadius }) => borderRadius}px;
-  height: 35px;
+  height: ${({ height }) => height}px;
 `;
 
+const defaultColor = theme.default.primaryColor;
 const SearchBar = (props) => {
   const {
+    height,
     contentContainerStyle,
     borderRadius,
     borderWidth,
     iconColor,
     placeholder,
+    primaryColor,
     style,
     value,
     onChangeText,
@@ -46,14 +44,18 @@ const SearchBar = (props) => {
     activeTintColor,
     borderColor,
     inactiveTintColor,
+    onFilterCategoryPress,
+    filterCategoryDisabled,
+    filterCategoryBackground,
   } = props;
   return (
     <Wrapper style={contentContainerStyle}>
       <SearchBarContainer
-        borderColor={borderColor}
+        borderColor={borderColor || primaryColor || defaultColor}
         borderWidth={borderWidth}
         borderRadius={borderRadius}
         style={style}
+        height={height}
       >
         <View
           style={{ width: 30, justifyContent: "center", alignItems: "center" }}
@@ -89,6 +91,23 @@ const SearchBar = (props) => {
             />
           </TouchableOpacity>
         )}
+        {onFilterCategoryPress && (
+          <TouchableOpacity
+            disabled={filterCategoryDisabled}
+            style={{
+              backgroundColor:
+                filterCategoryBackground || primaryColor || defaultColor,
+              borderTopRightRadius: borderRadius,
+              borderBottomRightRadius: borderRadius,
+              justifyContent: "center",
+              paddingHorizontal: 5,
+              height,
+            }}
+            onPress={onFilterCategoryPress}
+          >
+            <SvgXml xml={filtersIcon.filterCategoryIcon} fill="white" />
+          </TouchableOpacity>
+        )}
       </SearchBarContainer>
 
       {onHandleFilterComponent && (
@@ -96,7 +115,7 @@ const SearchBar = (props) => {
           <SvgXml
             width={20}
             height={20}
-            xml={filterIcon}
+            xml={filtersIcon.filterIcon}
             fill={isIconFiltersPressed ? activeTintColor : inactiveTintColor}
             style={{ marginLeft: 5 }}
           />
@@ -108,50 +127,26 @@ const SearchBar = (props) => {
 
 SearchBar.propTypes = {
   ...textInputProps,
+  onHandleFilterComponent: PropTypes.func,
+  onFilterCategoryPress: PropTypes.func,
+  filterCategoryDisabled: PropTypes.bool,
+  filterCategoryBackground: PropTypes.string,
+  height: PropTypes.number,
+  primaryColor: PropTypes.string,
 };
 
 SearchBar.defaultProps = {
   ...defaultTextInputProps,
-  ...defaultSearchBarBorderProps,
+  borderRadius: 4,
+  borderWidth: 1,
+  borderColor: null,
   placeholder: "search here...",
+  onHandleFilterComponent: null,
+  onFilterCategoryPress: null,
+  filterCategoryDisabled: false,
+  filterCategoryBackground: null,
+  height: 35,
+  primaryColor: null,
 };
 
-const Container = styled.View`
-  flex-direction: row;
-  align-items: center;
-  padding-top: 15px;
-  padding-bottom: 5px;
-  padding-horizontal: 15px;
-`;
-
-const SelectedValueContainer = styled.TouchableOpacity`
-  min-height: 35px;
-  border-radius: 4px;
-  border-width: 1px;
-  background-color: white;
-  border-color: ${({ theme: { colors } }) => colors.borderColor};
-  flex: 1;
-  padding-left: 10px;
-  flex-direction: row;
-  align-items: center;
-`;
-
-// export const SearchBar = ({ value, onPress }) => {
-//   return (
-//     <Container>
-//       <SelectedValueContainer onPress={onPress}>
-//         <Ionicons
-//           name={Platform.OS === "ios" ? "ios-search" : "md-search"}
-//           size={15}
-//           color={theme.colors.primaryColor}
-//         />
-//         {(!value && (
-//           <StyledText style={{ marginLeft: 5 }} capitalize>
-//             client-card-searchbar-placeholder
-//           </StyledText>
-//         )) || <StyledText style={{ marginLeft: 5 }}>{value}</StyledText>}
-//       </SelectedValueContainer>
-//     </Container>
-//   );
-// };
 export default SearchBar;
