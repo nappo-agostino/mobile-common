@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
+import StyledText from "../StyledText";
 import theme from "../../../styles/theme";
-import { TranslateTextComponent } from "../../../translator";
 
 const Button = styled.TouchableOpacity`
   background-color: ${({ color }) =>
@@ -22,7 +22,7 @@ const ModalButton = ({
   height = 40,
   width = 140,
   onPress,
-  disabled
+  disabled,
 }) => {
   return (
     <Button
@@ -32,17 +32,17 @@ const ModalButton = ({
       onPress={onPress}
       disabled={disabled}
     >
-      <TranslateTextComponent
+      <StyledText
         capitalize
         style={{
           fontSize: 16,
           fontFamily: "roboto-bold",
           textTransform: "uppercase",
-          color: color === "green" ? "white" : theme.colors.red
+          color: color === "green" ? "white" : theme.colors.red,
         }}
       >
         {children}
-      </TranslateTextComponent>
+      </StyledText>
     </Button>
   );
 };

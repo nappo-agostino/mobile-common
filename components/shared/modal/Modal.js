@@ -2,7 +2,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from "react";
 import styled from "styled-components/native";
-import { LinearGradient } from "expo-linear-gradient";
 import { SvgXml } from "react-native-svg";
 import { View } from "react-native";
 import { Overlay } from "react-native-elements";
@@ -11,7 +10,7 @@ import theme from "../../../styles/theme";
 import successIcon from "../../../assets/images/customModal/success.svg";
 import dangerIcon from "../../../assets/images/customModal/error.svg";
 import questionIcon from "../../../assets/images/customModal/modal-question.svg";
-import { TranslateTextComponent } from "../../../translator";
+import StyledText from "../StyledText";
 
 const Wrapper = styled(Overlay).attrs(
   ({
@@ -35,12 +34,6 @@ const Wrapper = styled(Overlay).attrs(
 )`
   flex: 1;
   width: "100%";
-`;
-
-const Header = styled(LinearGradient)`
-  min-height: 72px;
-  justify-content: center;
-  align-items: center;
 `;
 
 const ButtonModalContainer = styled.View`
@@ -117,21 +110,13 @@ const Modal = (props) => {
     headerIcon,
     content,
     headerContent,
-
     title,
     titleStyle,
     text,
     textStyle,
     isVisible,
     width = "90%",
-
-    // height = "50%",
     onBackdropPress,
-    headerLocations = [0.0, 1.0],
-    headerStart = [0.0, 0.5],
-    headerEnd = [1.0, 0.5],
-
-    headerStyle,
     windowBackgroundColor = theme.colors.backdropColor,
     overlayBackgroundColor,
     actionButtons,
@@ -152,24 +137,6 @@ const Modal = (props) => {
       onBackdropPress={onBackdropPress}
     >
       <>
-        {/* {modalClass && (
-          <Header
-            colors={modalClasses[modalClass].gradientColors}
-            start={headerStart}
-            end={headerEnd}
-            locations={headerLocations}
-            style={headerStyle}
-          >
-            {headerContent || (
-              <SvgXml
-                width={52}
-                height={39}
-                xml={headerIcon || modalClasses[modalClass].icon}
-              />
-            )}
-          </Header>
-        )} */}
-
         {modalClass && (
           <View
             style={{
@@ -195,7 +162,7 @@ const Modal = (props) => {
             }}
           >
             {title && (
-              <TranslateTextComponent
+              <StyledText
                 fontFamily="roboto-bold"
                 fontSize={20}
                 uppercase
@@ -205,11 +172,11 @@ const Modal = (props) => {
                 }}
               >
                 {title}
-              </TranslateTextComponent>
+              </StyledText>
             )}
 
             {text && (
-              <TranslateTextComponent
+              <StyledText
                 fontFamily="roboto-bold"
                 fontSize={20}
                 capitalize
@@ -219,7 +186,7 @@ const Modal = (props) => {
                 }}
               >
                 {text}
-              </TranslateTextComponent>
+              </StyledText>
             )}
             {content}
           </View>

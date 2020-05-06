@@ -15,13 +15,13 @@ export const borderProps = {
 export const defaultSearchBarBorderProps = {
   borderWidth: 1,
   borderRadius: 1,
-  borderColor: theme.default.primaryColor,
+  borderColor: theme.DEFAULT.primaryColor,
 };
 
 export const defaultBorderProps = {
   borderWidth: 0,
   borderRadius: 0,
-  borderColor: theme.default.defaultColor,
+  borderColor: theme.DEFAULT.defaultColor,
 };
 
 // STYLED TEXT
@@ -31,7 +31,7 @@ export const textProps = {
   fontSize: PropTypes.number,
 };
 export const defaultTextProps = {
-  color: theme.default.defaultColor,
+  color: theme.DEFAULT.defaultColor,
   fontFamily: defaultFontFamily,
   fontSize: 14,
 };
@@ -44,7 +44,7 @@ export const textChildrenProps = {
 };
 
 export const defaultTextChildrenProps = {
-  textColor: theme.default.defaultColor,
+  textColor: theme.DEFAULT.defaultColor,
   textFontFamily: defaultFontFamily,
   textFontSize: 14,
 };
@@ -138,22 +138,22 @@ export const defaultTextInputProps = {
   labelTextStyle: null,
   labelFontSize: 14,
   labelFontFamily: defaultFontFamily,
-  labelColor: theme.default.defaultColor,
+  labelColor: theme.DEFAULT.defaultColor,
   label: null,
   info: null,
   required: false,
-  requiredColor: theme.default.errorColor,
+  requiredColor: theme.DEFAULT.errorColor,
 
   ...defaultTextProps,
   style: null,
   textStyle: defaultTextProps,
   error: null,
-  errorColor: theme.default.errorColor,
+  errorColor: theme.DEFAULT.errorColor,
   value: "",
-  textColor: theme.default.defaultColor,
-  activeTintColor: theme.default.activeTintColor,
-  inactiveTintColor: theme.default.inactiveTintColor,
-  placeholderTextColor: theme.default.defaultPlaceHolderTextColor,
+  textColor: theme.DEFAULT.defaultColor,
+  activeTintColor: theme.DEFAULT.activeTintColor,
+  inactiveTintColor: theme.DEFAULT.inactiveTintColor,
+  placeholderTextColor: theme.DEFAULT.defaultPlaceHolderTextColor,
   placeholder: null,
   multiline: false,
   secureTextEntry: false,

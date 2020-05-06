@@ -7,6 +7,7 @@ import {
   Button,
 } from "../../components/shared";
 import theme from "../../styles/theme";
+import { APP_TYPES } from "../../app.types";
 
 const SearchBarExample = () => {
   const [keyword, setKeyword] = useState(null);
@@ -32,6 +33,8 @@ const SearchBarExample = () => {
   const closeFilterComponent = () => {
     setIsIconFiltersPressed(false);
   };
+
+  console.log("test", APP_TYPES.APP_MOH);
   return (
     <View style={{ flex: 1 }}>
       <View style={{ margin: 10 }}>
@@ -62,7 +65,7 @@ const SearchBarExample = () => {
           onClear={() => setKeyword(null)}
           contentContainerStyle={{ marginTop: 10 }}
           borderRadius={4}
-          primaryColor={theme["app-moh"].primaryColor}
+          primaryColor={theme.APP_MOH.primaryColor}
           iconColor="green"
           onFilterCategoryPress={onHandleFilterComponent}
         />

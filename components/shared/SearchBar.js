@@ -25,7 +25,7 @@ const SearchBarContainer = styled.View`
   height: ${({ height }) => height}px;
 `;
 
-const defaultColor = theme.default.primaryColor;
+const defaultColor = theme.DEFAULT.primaryColor;
 const SearchBar = (props) => {
   const {
     height,

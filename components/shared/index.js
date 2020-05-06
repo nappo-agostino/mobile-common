@@ -7,10 +7,11 @@ import RadioButton from "./RadioButton";
 import DropdownAlert from "./DropdownAlert";
 import PublicImage from "./PublicImage";
 import WithIconRow from "./WithIconRow";
-import StepperCounter from "./StepperCounter";
+import StepperCounter from "./stepper/StepperCounter";
 import TextInput from "./textInput/TextInput";
 import Dropdown from "./dropdown/Dropdown";
 import ImageCard from "./ImageCard";
+import ProgressSteppers from "./progress-stepper/ProgressSteppers";
 import {
   FiltersComponent,
   PreviewContainer,
@@ -36,6 +37,7 @@ export {
   TextInput,
   Dropdown,
   ImageCard,
+  ProgressSteppers,
 };
 export const BottomSheet = {
   FiltersComponent,

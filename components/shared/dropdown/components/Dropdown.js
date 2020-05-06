@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import ModalDropdown from "react-native-modal-dropdown";
 import { SvgXml } from "react-native-svg";
-import { Platform, TouchableOpacity, View } from "react-native";
+import { Platform } from "react-native";
 import theme from "../../../../styles/theme";
-import StyledText from "../../StyledText";
-import { textProps, style, nodeProps, defaultTextProps } from "../../proptypes";
 import OptionRow from "./OptionRow";
 import Value from "./Value";
 import Arrow from "./Arrow";
@@ -85,7 +82,6 @@ const Dropdown = (props) => {
   const updateArrowContainerWidth = (width) => {
     setArrowContainerWidth(width);
   };
-
   return (
     <Wrapper
       error={error}

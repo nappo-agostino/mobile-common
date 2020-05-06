@@ -7,7 +7,7 @@ export default {
   dropdownProps: {
     contained: false,
     arrowContained: true,
-    arrowIcon: "arrowDropdownLocalIcon",
+    arrowIcon: "arrowDownIcon",
     arrowColor: "white",
   },
   textInputProps: {

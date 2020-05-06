@@ -111,7 +111,7 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  color: theme.colors.primaryColor,
+  color: "red",
   placeHolder: "select item",
   options: [],
   defaultValue: null,

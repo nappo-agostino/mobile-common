@@ -7,7 +7,7 @@ export default {
     contained: false,
     arrowContained: false,
     arrowIcon: "arrowDropdownMohIcon",
-    arrowColor: "white",
+    arrowColor: "#B5B5B5",
   },
   textInputProps: {
     labelFontFamily: "roboto-bold",

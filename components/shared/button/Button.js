@@ -150,7 +150,7 @@ Button.defaultProps = {
   capitalize: false,
   inverted: false,
   borderColor: null,
-  primaryColor: theme.default.buttonProps.primaryColor,
-  secondaryColor: theme.default.buttonProps.secondaryColor,
+  primaryColor: theme.DEFAULT.buttonProps.primaryColor,
+  secondaryColor: theme.DEFAULT.buttonProps.secondaryColor,
   appType: null,
 };

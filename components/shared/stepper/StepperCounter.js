@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components/native";
 import { View } from "react-native";
 import { SvgXml } from "react-native-svg";
-import theme from "../../styles/theme";
-import StyledText from "./StyledText";
-import { textProps, style } from "./proptypes";
+import theme from "../../../styles/theme";
+import StyledText from "../StyledText";
+import { textProps, style } from "../proptypes";
 
 const TitleContainer = styled.View`
   flex-direction: row;
