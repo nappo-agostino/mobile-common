@@ -35,7 +35,7 @@ const RadioButton = (props) => {
     textStyle,
     fontFamily,
     fontSize,
-    color,
+    primaryColor,
     errorColor,
     disabledColor,
     containerStyle,
@@ -44,7 +44,7 @@ const RadioButton = (props) => {
   const getColor = () => {
     if (disabled) return disabledColor;
     if (error) return errorColor;
-    return color;
+    return primaryColor;
   };
 
   return (
@@ -98,7 +98,7 @@ RadioButton.propTypes = {
   ]),
   textStyle: PropTypes.shape(textProps),
   ...textChildrenProps,
-  color: PropTypes.string,
+  primaryColor: PropTypes.string,
   errorColor: PropTypes.string,
   disabledColor: PropTypes.string,
   contained: PropTypes.bool,
@@ -112,7 +112,7 @@ RadioButton.defaultProps = {
   errorLabel: null,
   children: null,
   textStyle: null,
-  color: theme.colors.primaryColor,
+  primaryColor: theme.colors.primaryColor,
   errorColor: theme.colors.errorColor,
   disabledColor: theme.colors.grey,
   contained: false,

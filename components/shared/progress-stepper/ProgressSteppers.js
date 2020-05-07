@@ -1,76 +1,119 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import { SvgXml } from "react-native-svg";
-
-import { APP_TYPES } from "../../../app.types";
-import checkIcon from "../../../assets/images/check.svg";
-import StyledText from "../StyledText";
+import Line from "./Line";
+import { style, nodeProps, stepPropTypes } from "../proptypes";
 import ProgressStep from "./ProgressStep";
-import theme from "../../../styles/theme";
-
-const statuses = {
-  completed: {
-    primaryColor: {
-      [APP_TYPES.APP_MOH]: theme.APP_MOH.primaryColor,
-      [APP_TYPES.DEFAULT]: theme.DEFAULT.primaryColor,
-      [APP_TYPES.APP_LOCAL]: theme.APP_LOCAL.primaryColor,
-    },
-    iconColor: "white",
-    icon: checkIcon,
-  },
-  active: {
-    primaryColor: {
-      [APP_TYPES.APP_MOH]: theme.APP_MOH.primaryColor,
-      [APP_TYPES.DEFAULT]: theme.DEFAULT.primaryColor,
-      [APP_TYPES.APP_LOCAL]: theme.APP_LOCAL.primaryColor,
-    },
-    icon: null,
-  },
-  incomplete: {
-    primaryColor: {
-      [APP_TYPES.APP_MOH]: theme.APP_MOH.labelColor,
-      [APP_TYPES.DEFAULT]: theme.DEFAULT.grey,
-      [APP_TYPES.APP_LOCAL]: theme.APP_LOCAL.grey,
-    },
-    icon: null,
-  },
-};
 
 const ProgressSteppers = ({
-  appType = "APP_MOH",
-  status = "completed",
+  activeStep,
   steps,
+  activeStepColor,
+  completedStepColor,
+  incompleteStepColor,
+  completedIcon,
+  lineColor,
+  stepStyle,
+  labelStyle,
+  children,
+  containerStepStyle,
+  onStepPress,
 }) => {
-  console.log("test", statuses[status].primaryColor[appType]);
-  console.log("test1", theme[APP_TYPES[appType]].primaryColor);
+  if (steps.length > 3) {
+    return new Error("max length of step: 3");
+  }
+  const getStepColor = (step) => {
+    if (step.key === activeStep.key) {
+      return activeStepColor;
+    }
+    if (step.status === "completed") {
+      return completedStepColor;
+    }
+    return incompleteStepColor;
+  };
 
   return (
-    <View style={{ flexDirection: "row" }}>
-      <ProgressStep
-        icon={checkIcon}
-        stepColor={statuses[status].primaryColor[appType]}
-        lineColor={statuses[status].primaryColor[appType]}
-      />
-      <ProgressStep
-        icon={checkIcon}
-        stepColor={statuses[status].primaryColor[appType]}
-        lineColor={statuses[status].primaryColor[appType]}
-      />
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          ...containerStepStyle,
+        }}
+      >
+        {steps.map((step, index) => {
+          const currentStep = {
+            stepColor: getStepColor(step),
+            lineColor,
+            completedIcon,
+            ...step,
+          };
+
+          return (
+            <View
+              key={index}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <ProgressStep
+                activeStep={activeStep}
+                currentStep={currentStep}
+                stepStyle={stepStyle}
+                labelStyle={labelStyle}
+                onStepPress={() => onStepPress(step, index)}
+              />
+              {index !== steps.length - 1 && <Line />}
+            </View>
+          );
+        })}
+      </View>
+      {children}
     </View>
   );
 };
 
 ProgressSteppers.propTypes = {
-  appType: PropTypes.string,
-  status: PropTypes.string,
-  // steps:
+  containerStepStyle: PropTypes.shape(style),
+  activeStep: PropTypes.shape(stepPropTypes).isRequired,
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...stepPropTypes,
+      stepColor: PropTypes.string,
+      completedIcon: PropTypes.string,
+      lineColor: PropTypes.string,
+
+      stepStyle: PropTypes.shape({
+        fontFamily: PropTypes.string,
+        fontSize: PropTypes.number,
+        color: PropTypes.string,
+      }),
+      labelStyle: PropTypes.shape({
+        fontFamily: PropTypes.string,
+        fontSize: PropTypes.number,
+        color: PropTypes.string,
+      }),
+    })
+  ).isRequired,
+  stepStyle: PropTypes.shape({
+    fontFamily: PropTypes.string,
+    fontSize: PropTypes.number,
+    color: PropTypes.string,
+  }),
+  labelStyle: PropTypes.shape({
+    fontFamily: PropTypes.string,
+    fontSize: PropTypes.number,
+    color: PropTypes.string,
+  }),
+  onStepPress: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([...nodeProps]),
 };
 
 ProgressSteppers.defaultProps = {
-  appType: null,
-  status: null,
-  steps: [],
+  containerStepStyle: null,
+  stepStyle: null,
+  labelStyle: null,
+  children: null,
 };
+
 export default ProgressSteppers;

@@ -7,7 +7,7 @@ import { SvgXml } from "react-native-svg";
 import BottomSheet from "./BottomSheet";
 import StyledText from "../StyledText";
 import { textProps, defaultTextProps } from "../proptypes";
-import filterIcon from "../../../assets/images/filter-icon.svg";
+import filterIcon from "../../../assets/images/filter/filter-icon.svg";
 
 const FiltersComponent = (props) => {
   const {

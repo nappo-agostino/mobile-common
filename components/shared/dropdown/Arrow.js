@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { SvgXml } from "react-native-svg";
-import arrows from "../../../../assets/images/arrows";
-import theme from "../../../../styles/theme";
+import arrows from "../../../assets/images/arrows";
+import theme from "../../../styles/theme";
 
 const ArrowContainer = styled.View`
   position: absolute;

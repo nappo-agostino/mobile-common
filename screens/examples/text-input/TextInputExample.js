@@ -1,8 +1,8 @@
 import React from "react";
 import { View, ScrollView } from "react-native";
-import { TextInput } from "../../components/shared";
-import icons from "../../assets/images/textInput";
-import theme from "../../styles/theme";
+import TextInput from "./TextInput";
+import icons from "../../../assets/images/textInput";
+import theme from "../../../styles/theme";
 
 const TextInputExample = () => {
   const [email, setEmail] = React.useState(null);

@@ -5,10 +5,10 @@ import theme from "../../styles/theme";
 import { containerPropsStyle, textProps, defaultTextProps } from "./proptypes";
 
 const Text = styled.Text`
-  font-family: ${({ fontFamily }) => fontFamily || "space-mono"};
+  font-family: ${({ fontFamily }) => fontFamily || "roboto-regular"};
   font-size: ${({ fontSize }) => fontSize || 14}px;
   color: ${({ color }) => color || theme.colors.defaultColor};
-  /* ${({ uppercase, capitalize }) => {
+  ${({ uppercase, capitalize }) => {
     if (uppercase) {
       return css`
         text-transform: uppercase;
@@ -19,10 +19,7 @@ const Text = styled.Text`
         text-transform: capitalize;
       `;
     }
-    return css`
-      text-transform: capitalize;
-    `;
-  }} */
+  }}
 `;
 
 const StyledText = (props) => {
@@ -41,11 +38,9 @@ const StyledText = (props) => {
       fontFamily={fontFamily}
       fontSize={fontSize}
       color={color}
-      style={[
-        { ...style, includeFontPadding: false },
-        capitalize && { textTransform: "capitalize" },
-        uppercase && { textTransform: "uppercase" },
-      ]}
+      capitalize={capitalize}
+      uppercase={uppercase}
+      style={{ ...style, includeFontPadding: false }}
       {...props}
     >
       {children}

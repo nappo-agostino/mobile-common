@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { Dropdown } from "../../components/shared";
-import theme from "../../styles/theme";
-import filterIcon from "../../assets/images/filter/filter-icon.svg";
+import Dropdown from "./Dropdown";
+import theme from "../../../styles/theme";
+import filterIcon from "../../../assets/images/filter/filter-icon.svg";
 
 const DropdownExample = () => {
   const [dropdownValue, setDropdownValue] = useState(null);

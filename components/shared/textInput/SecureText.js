@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
-import showPassIcon from "../../../../assets/images/textInput/show-password.svg";
+import showPassIcon from "../../../assets/images/textInput/show-password.svg";
 
 const SecureTextButton = styled.TouchableOpacity`
   height: 100%;

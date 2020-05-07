@@ -21,11 +21,12 @@ import {
   ParallaxExample,
   RowExample,
   StepperCounterExample,
+  DropdownExample,
+  ImageCardExample,
+  ProgressSteppersExample,
+  OrderCardExample,
 } from "./examples";
 import theme from "../styles/theme";
-import DropdownExample from "./examples/DropdownExample";
-import ImageCardExample from "./examples/ImageCardExample";
-import ProgressSteppersExample from "./examples/ProgressSteppersExample";
 
 const OPTIONS = {
   TextInput: { key: "TextInput" },
@@ -38,6 +39,7 @@ const OPTIONS = {
   Dropdown: { key: "Dropdown" },
   ImageCard: { key: "ImageCard" },
   ProgressSteppers: { key: "ProgressSteppers" },
+  OrderCard: { key: "OrderCard" },
   Modal: { key: "Modal" },
   DatePicker: { key: "Date Picker" },
 };
@@ -95,6 +97,7 @@ const HomeScreen = () => {
         {option === OPTIONS.ImageCard.key && <ImageCardExample />}
         {option === OPTIONS.ImageCard.key && <ImageCardExample />}
         {option === OPTIONS.ProgressSteppers.key && <ProgressSteppersExample />}
+        {option === OPTIONS.OrderCard.key && <OrderCardExample />}
       </View>
     </View>
   );

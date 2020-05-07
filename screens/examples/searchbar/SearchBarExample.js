@@ -1,13 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View } from "react-native";
-import {
-  SearchBar,
-  StyledText,
-  BottomSheet,
-  Button,
-} from "../../components/shared";
-import theme from "../../styles/theme";
-import { APP_TYPES } from "../../app.types";
+import { SearchBar, StyledText, BottomSheet } from "../../../components/shared";
+import { APP_TYPES } from "../../../app.types";
+import theme from "../../../styles/theme";
+import Button from "./Button";
 
 const SearchBarExample = () => {
   const [keyword, setKeyword] = useState(null);
@@ -34,7 +30,6 @@ const SearchBarExample = () => {
     setIsIconFiltersPressed(false);
   };
 
-  console.log("test", APP_TYPES.APP_MOH);
   return (
     <View style={{ flex: 1 }}>
       <View style={{ margin: 10 }}>
@@ -88,28 +83,34 @@ const SearchBarExample = () => {
         <View style={{ flexDirection: "row", marginTop: 10 }}>
           <Button
             text="adapted size"
-            adapt
+            // adapt
             containerStyle={{ marginRight: 10 }}
             onPress={onHandleFilterComponent}
             appType="APP_MOH"
           />
           <Button
             text="adapted size"
-            adapt
+            // adapt
+            inverted
+            onPress={onHandleFilterComponent}
+            appType="APP_MOH"
+          />
+
+          <Button
+            text="adapted sizeeeeeeeeeee"
+            // adapt
             inverted
             onPress={onHandleFilterComponent}
             appType="APP_MOH"
           />
         </View>
-        {/* <Button
+        <Button
+          text="adapted size"
           adapt
           inverted
-          containerStyle={{ marginTop: 10 }}
           onPress={onHandleFilterComponent}
           appType="APP_MOH"
-        >
-          <StyledText>with children</StyledText>
-        </Button> */}
+        />
       </View>
 
       <BottomSheet.FiltersComponent

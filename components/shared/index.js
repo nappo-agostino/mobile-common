@@ -1,6 +1,6 @@
 import TabBarIcon from "./TabBarIcon";
 import StyledText from "./StyledText";
-import Button from "./button/Button";
+import Button from "./Button";
 import SearchBar from "./SearchBar";
 import CheckBox from "./CheckBox";
 import RadioButton from "./RadioButton";
@@ -10,7 +10,7 @@ import WithIconRow from "./WithIconRow";
 import StepperCounter from "./stepper/StepperCounter";
 import TextInput from "./textInput/TextInput";
 import Dropdown from "./dropdown/Dropdown";
-import ImageCard from "./ImageCard";
+import ImageCard from "./cards/ImageCard";
 import ProgressSteppers from "./progress-stepper/ProgressSteppers";
 import {
   FiltersComponent,

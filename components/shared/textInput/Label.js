@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import StyledText from "../../StyledText";
+import StyledText from "../StyledText";
 
 const Label = ({
   labelTextStyle,

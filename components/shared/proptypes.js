@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import theme from "../../styles/theme";
 
-const defaultFontFamily = "space-mono";
+const defaultFontFamily = "roboto-regular";
 
 export const styleProp = { style: PropTypes.oneOfType([PropTypes.object]) };
 
@@ -165,4 +165,15 @@ export const defaultTextInputProps = {
   onContentSizeChange: null,
   onFocus: null,
   onBlur: null,
+};
+
+export const stepPropTypes = {
+  key: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  stepValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
+  label: PropTypes.string,
 };

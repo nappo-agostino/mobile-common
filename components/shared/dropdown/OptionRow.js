@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
-import StyledText from "../../StyledText";
+import StyledText from "../StyledText";
 
 const OptionRow = ({ option, rowColor }) => {
   return (

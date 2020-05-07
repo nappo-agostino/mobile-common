@@ -2,15 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import CustomButton from "./components/Button";
+import { Button as CustomButton, StyledText } from "../../../components/shared";
 import { APP_TYPES } from "../../../app.types";
-import {
-  containerPropsStyle,
-  textChildrenProps,
-  defaultTextChildrenProps,
-} from "../proptypes";
 import theme from "../../../styles/theme";
-import StyledText from "../StyledText";
 
 const Button = (props) => {
   const {
@@ -59,7 +53,7 @@ const Button = (props) => {
       }
       textColor={textColor}
       borderWidth={borderWidth}
-      adapt={adapt}
+      // adapt={adapt}
       textStyle={{
         textTransform: theme[APP_TYPES[appType]].buttonProps.textTransform,
         ...textStyle,
@@ -102,55 +96,3 @@ const Button = (props) => {
 };
 
 export default Button;
-Button.propTypes = {
-  containerStyle: PropTypes.shape({ ...containerPropsStyle }),
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  textColor: PropTypes.string,
-  textFontFamily: PropTypes.string,
-  textFontSize: PropTypes.number,
-  textStyle: PropTypes.shape(textChildrenProps),
-  icon: PropTypes.string,
-  text: PropTypes.string,
-  borderWidth: PropTypes.number,
-  borderRadius: PropTypes.number,
-  adapt: PropTypes.bool,
-  disabled: PropTypes.bool,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-    StyledText,
-  ]),
-  onPress: PropTypes.func.isRequired,
-  uppercase: PropTypes.bool,
-  capitalize: PropTypes.bool,
-  inverted: PropTypes.bool,
-  borderColor: PropTypes.string,
-  primaryColor: PropTypes.string,
-  secondaryColor: PropTypes.string,
-  appType: PropTypes.string,
-};
-
-Button.defaultProps = {
-  containerStyle: null,
-  height: 35,
-  width: "auto",
-  textStyle: null,
-  borderWidth: 1,
-  borderRadius: 4,
-  textColor: null,
-  textFontFamily: "space-mono",
-  textFontSize: 14,
-  adapt: false,
-  icon: null,
-  text: null,
-  children: null,
-  disabled: false,
-  uppercase: false,
-  capitalize: false,
-  inverted: false,
-  borderColor: null,
-  primaryColor: theme.DEFAULT.buttonProps.primaryColor,
-  secondaryColor: theme.DEFAULT.buttonProps.secondaryColor,
-  appType: null,
-};

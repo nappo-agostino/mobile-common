@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import BottomSheet from "./BottomSheet";
 import PreviewHeader from "./PreviewHeader";
 import PreviewContent from "./PreviewContent";
-import Button from "../button/components/Button";
+import Button from "../Button";
 
 const PreviewContainer = ({
   children,

@@ -1,5 +1,5 @@
 import React from "react";
-import StyledText from "../../StyledText";
+import StyledText from "../StyledText";
 
 const Value = ({ value, valueStyle, contained, placeHolder }) => {
   return (

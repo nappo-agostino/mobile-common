@@ -3,6 +3,8 @@ export default {
   borderColor: "#ecebec",
   errorColor: "#F9595A",
   labelColor: "#B5B5B5",
+  disabledColor: "#B5B5B5",
+  radioCardBackgroundColor: "#FFCCCE59",
   dropdownProps: {
     contained: false,
     arrowContained: false,
