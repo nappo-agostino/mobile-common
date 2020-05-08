@@ -86,7 +86,8 @@ const SearchBarExample = () => {
             // adapt
             containerStyle={{ marginRight: 10 }}
             onPress={onHandleFilterComponent}
-            appType="APP_MOH"
+            // appType="APP_MOH"
+            uppercase
           />
           <Button
             text="adapted size"

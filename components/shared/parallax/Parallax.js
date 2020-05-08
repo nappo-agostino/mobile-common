@@ -22,7 +22,7 @@ const Parallax = ({
     <ParallaxScrollView
       showsVerticalScrollIndicator={false}
       contentBackgroundColor={theme.colors.mainBackground}
-      headerBackgroundColor="#333"
+      headerBackgroundColor="white"
       parallaxHeaderHeight={parallaxHeaderHeight}
       backgroundSpeed={10}
       renderBackground={() =>
@@ -34,6 +34,7 @@ const Parallax = ({
             titleStyle={titleStyle}
             subTitleStyle={subTitleStyle}
             imageStyle={imageStyle}
+            parallaxHeaderHeight={parallaxHeaderHeight}
           />
         )
       }

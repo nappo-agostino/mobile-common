@@ -1,8 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 import Parallax from "../../components/shared/parallax/Parallax";
-import { StyledText } from "../../components/shared";
+import { StyledText, SearchBar } from "../../components/shared";
 import { image } from "../../utils/costants";
+import { DEVICE_HEIGHT } from "../../utils/dimension";
 
 const ParallaxExample = () => {
   return (
@@ -11,6 +12,7 @@ const ParallaxExample = () => {
         title="title"
         subtitle="subtitle"
         image={image}
+
         // parallaxHeaderHeight={300}
       >
         <View>

@@ -9,8 +9,6 @@ import theme from "../../../styles/theme";
 const Card = styled.TouchableOpacity`
   border-width: ${({ isSelected }) => (isSelected ? 1.5 : 0)}px;
   border-color: ${({ primaryColor }) => primaryColor};
-  background-color: ${({ isSelected, secondaryColor }) =>
-    isSelected ? secondaryColor : "white"};
   padding: 10px;
   flex-direction: row;
   margin-vertical: 10px;
@@ -30,7 +28,6 @@ const StyledRadio = styled.View`
 const RadioCard = ({
   isSelected,
   primaryColor,
-  secondaryColor,
   title,
   line1,
   line2,
@@ -42,7 +39,6 @@ const RadioCard = ({
     <Card
       onPress={onPress}
       primaryColor={primaryColor}
-      secondaryColor={secondaryColor}
       isSelected={isSelected}
       style={
         !isSelected && {
@@ -70,7 +66,6 @@ const RadioCard = ({
 RadioCard.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   primaryColor: PropTypes.string,
-  secondaryColor: PropTypes.string,
   onPress: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   line1: PropTypes.string.isRequired,
@@ -81,7 +76,6 @@ RadioCard.propTypes = {
 
 RadioCard.defaultProps = {
   primaryColor: theme.DEFAULT.primaryColor,
-  secondaryColor: theme.DEFAULT.secondaryColor,
   titleStyle: { ...defaultTextProps, fontFamily: "roboto-bold" },
   lineStyle: defaultTextProps,
   line2: null,

@@ -1,10 +1,11 @@
+/* eslint-disable consistent-return */
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components/native";
 import theme from "../../styles/theme";
 import { containerPropsStyle, textProps, defaultTextProps } from "./proptypes";
 
-const Text = styled.Text`
+const CustomText = styled.Text`
   font-family: ${({ fontFamily }) => fontFamily || "roboto-regular"};
   font-size: ${({ fontSize }) => fontSize || 14}px;
   color: ${({ color }) => color || theme.colors.defaultColor};
@@ -34,7 +35,7 @@ const StyledText = (props) => {
   } = props;
 
   return (
-    <Text
+    <CustomText
       fontFamily={fontFamily}
       fontSize={fontSize}
       color={color}
@@ -44,12 +45,15 @@ const StyledText = (props) => {
       {...props}
     >
       {children}
-    </Text>
+    </CustomText>
   );
 };
 
 // StyledText.propTypes = {
-//   style: PropTypes.shape({ ...containerPropsStyle, textProps }),
+//   style: PropTypes.oneOfType([
+//     PropTypes.shape({ ...containerPropsStyle, ...textProps }),
+//     PropTypes.arrayOf(PropTypes.object),
+//   ]),
 //   ...textProps,
 //   capitalize: PropTypes.bool,
 //   uppercase: PropTypes.bool,
@@ -57,6 +61,7 @@ const StyledText = (props) => {
 //     PropTypes.arrayOf(PropTypes.node),
 //     PropTypes.node,
 //     StyledText,
+//     PropTypes.string,
 //   ]).isRequired,
 // };
 

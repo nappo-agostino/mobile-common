@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
+import { ActivityIndicator } from "react-native";
 import { SvgXml } from "react-native-svg";
 import StyledText from "./StyledText";
 import theme from "../../styles/theme";
@@ -46,6 +47,7 @@ const Button = ({
   disabled,
   onPress,
   containerStyle,
+  isLoading,
 }) => {
   return (
     <StyledButton
@@ -57,23 +59,32 @@ const Button = ({
       primaryColor={primaryColor}
       secondaryColor={secondaryColor}
       borderWidth={borderWidth}
-      borderColor={borderColor}
+      borderColor={borderColor || primaryColor}
       style={[adapt && { alignSelf: "flex-start" }, { ...containerStyle }]}
     >
-      {icon && <SvgXml xml={icon} style={{ marginRight: 5 }} />}
-      {text ? (
-        <StyledText
-          fontSize={textFontSize}
-          fontFamily={textFontFamily}
-          color={textColor || primaryColor}
-          uppercase={uppercase}
-          capitalize={capitalize}
-          style={textStyle}
-        >
-          {text}
-        </StyledText>
+      {isLoading ? (
+        <ActivityIndicator size={textFontSize} color={textColor} />
       ) : (
-        children
+        [
+          icon && (
+            <SvgXml key="buttonIcon" xml={icon} style={{ marginRight: 5 }} />
+          ),
+          text ? (
+            <StyledText
+              key="buttonText"
+              fontSize={textFontSize}
+              fontFamily={textFontFamily}
+              color={textColor || primaryColor}
+              uppercase={uppercase}
+              capitalize={capitalize}
+              style={textStyle}
+            >
+              {text}
+            </StyledText>
+          ) : (
+            children
+          ),
+        ]
       )}
     </StyledButton>
   );
@@ -106,6 +117,7 @@ Button.propTypes = {
   borderColor: PropTypes.string,
   primaryColor: PropTypes.string,
   secondaryColor: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -125,7 +137,8 @@ Button.defaultProps = {
   disabled: false,
   uppercase: false,
   capitalize: false,
-  borderColor: null,
+  borderColor: theme.DEFAULT.buttonProps.primaryColor,
   primaryColor: theme.DEFAULT.buttonProps.primaryColor,
   secondaryColor: theme.DEFAULT.buttonProps.secondaryColor,
+  isLoading: false,
 };

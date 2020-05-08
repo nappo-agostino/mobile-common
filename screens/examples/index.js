@@ -7,8 +7,9 @@ import StepperCounterExample from "./StepperCounterExample";
 import RowExample from "./RowExample";
 import DropdownExample from "./dropdown/DropdownExample";
 import ImageCardExample from "./ImageCardExample";
-import ProgressSteppersExample from "./progressStepper/ProgressSteppersExample";
+import ProgressStepperExample from "./progressStepper/ProgressStepperExample";
 import OrderCardExample from "./OrderCardExample";
+import TabViewExample from "./tab-view/TabViewExample";
 
 export {
   TextInputExample,
@@ -20,6 +21,7 @@ export {
   RowExample,
   DropdownExample,
   ImageCardExample,
-  ProgressSteppersExample,
+  ProgressStepperExample,
   OrderCardExample,
+  TabViewExample,
 };

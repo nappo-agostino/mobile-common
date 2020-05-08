@@ -6,35 +6,32 @@ import { Button as CustomButton, StyledText } from "../../../components/shared";
 import { APP_TYPES } from "../../../app.types";
 import theme from "../../../styles/theme";
 
-const Button = (props) => {
-  const {
-    height,
-    width,
-    icon,
-    text,
-    adapt,
-    textColor,
-    textStyle,
-    textFontFamily,
-    textFontSize,
-    uppercase,
-    capitalize,
-    borderRadius,
-    borderWidth,
-    borderColor,
-    primaryColor,
-    secondaryColor,
-    inverted,
-    children,
-    disabled,
-    onPress,
-    containerStyle,
-    appType,
-  } = props;
-
+const Button = ({
+  height,
+  width,
+  icon,
+  text,
+  adapt,
+  textColor,
+  textStyle,
+  textFontFamily,
+  textFontSize,
+  uppercase,
+  capitalize,
+  borderRadius,
+  borderWidth,
+  borderColor,
+  primaryColor,
+  secondaryColor,
+  inverted,
+  children,
+  disabled,
+  onPress,
+  containerStyle,
+  appType,
+}) => {
   return appType ? (
     <CustomButton
-      {...props}
       height={height}
       width={width}
       disabled={disabled}
@@ -53,7 +50,7 @@ const Button = (props) => {
       }
       textColor={textColor}
       borderWidth={borderWidth}
-      // adapt={adapt}
+      adapt={adapt}
       textStyle={{
         textTransform: theme[APP_TYPES[appType]].buttonProps.textTransform,
         ...textStyle,

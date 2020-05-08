@@ -7,7 +7,7 @@ import styled from "styled-components/native";
 import theme from "../../../styles/theme";
 import StyledText from "../StyledText";
 
-import closeButtonPreviewIcon from "../../../assets/images/bottomSheet/close-button-preview.svg";
+import closeButtonPreviewIcon from "../../../assets/images/bottom-sheet/close-button-preview.svg";
 
 const BottomSheetHeader = styled.View`
   flex-direction: row;

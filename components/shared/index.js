@@ -8,16 +8,17 @@ import DropdownAlert from "./DropdownAlert";
 import PublicImage from "./PublicImage";
 import WithIconRow from "./WithIconRow";
 import StepperCounter from "./stepper/StepperCounter";
-import TextInput from "./textInput/TextInput";
+import TextInput from "./text-input/TextInput";
 import Dropdown from "./dropdown/Dropdown";
 import ImageCard from "./cards/ImageCard";
 import ProgressSteppers from "./progress-stepper/ProgressSteppers";
+import TabView from "./TabView";
 import {
   FiltersComponent,
   PreviewContainer,
   PreviewContent,
   PreviewHeader,
-} from "./bottomSheet";
+} from "./bottom-sheet";
 
 export {
   TabBarIcon,
@@ -38,6 +39,7 @@ export {
   Dropdown,
   ImageCard,
   ProgressSteppers,
+  TabView,
 };
 export const BottomSheet = {
   FiltersComponent,

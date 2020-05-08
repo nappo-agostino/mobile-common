@@ -1,56 +1,43 @@
-import * as WebBrowser from "expo-web-browser";
+import { NavigationContext } from "@react-navigation/native";
 import * as React from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  FlatList,
-  View,
-} from "react-native";
-import { SvgXml } from "react-native-svg";
+import { View } from "react-native";
 
-import { StyledText } from "../components/shared";
-import {
-  TextInputExample,
-  SearchBarExample,
-  CheckBoxAndRadioExample,
-  DropdownAlertExample,
-  ParallaxExample,
-  RowExample,
-  StepperCounterExample,
-  DropdownExample,
-  ImageCardExample,
-  ProgressSteppersExample,
-  OrderCardExample,
-} from "./examples";
-import theme from "../styles/theme";
+import { StyledText, Button } from "../components/shared";
 
 const OPTIONS = {
-  TextInput: { key: "TextInput" },
-  SearchBar: { key: "SearchBar" },
-  "CB&R": { key: "CheckBox & Radio" },
-  DropdownAlert: { key: "DropdownAlert" },
-  Parallax: { key: "Parallax" },
-  Row: { key: "Row" },
-  Stepper: { key: "Stepper" },
-  Dropdown: { key: "Dropdown" },
-  ImageCard: { key: "ImageCard" },
-  ProgressSteppers: { key: "ProgressSteppers" },
-  OrderCard: { key: "OrderCard" },
+  TextInput: { key: "TextInput", stack: "TextInputStack" },
+  SearchBar: { key: "SearchBar", stack: "SearchBarStack" },
+  "CB&R": { key: "CheckBox & Radio", stack: "CheckBoxRadioStack" },
+  DropdownAlert: { key: "DropdownAlert", stack: "DropdownAlertStack" },
+  Parallax: { key: "Parallax", stack: "ParallaxStack" },
+  Row: { key: "Row", stack: "RowStack" },
+  Stepper: { key: "Stepper", stack: "StepperStack" },
+  Dropdown: { key: "Dropdown", stack: "DropdownStack" },
+  ImageCard: { key: "ImageCard", stack: "ImageCardStack" },
+  ProgressStepper: { key: "ProgressStepper", stack: "ProgressStepperStack" },
+  OrderCard: { key: "OrderCard", stack: "OrderCardStack" },
+  TabView: { key: "TabView", stack: "TabViewStack" },
   Modal: { key: "Modal" },
   DatePicker: { key: "Date Picker" },
 };
 
 const HomeScreen = () => {
-  const [option, setOption] = React.useState(OPTIONS.TextInput.key);
+  const navigation = React.useContext(NavigationContext);
 
   return (
     <View style={{ flex: 1 }}>
-      <View>
-        <FlatList
+      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+        {Object.keys(OPTIONS).map((key, index) => (
+          <Button
+            adapt
+            key={index}
+            text={OPTIONS[key].key}
+            onPress={() => navigation.navigate(OPTIONS[key].stack)}
+            containerStyle={{ margin: 10 }}
+          />
+        ))}
+
+        {/* <FlatList
           showsHorizontalScrollIndicator={false}
           data={Object.keys(OPTIONS)}
           style={{ margin: 10 }}
@@ -98,6 +85,7 @@ const HomeScreen = () => {
         {option === OPTIONS.ImageCard.key && <ImageCardExample />}
         {option === OPTIONS.ProgressSteppers.key && <ProgressSteppersExample />}
         {option === OPTIONS.OrderCard.key && <OrderCardExample />}
+        {option === OPTIONS.TabView.key && <TabViewExample />} */}
       </View>
     </View>
   );

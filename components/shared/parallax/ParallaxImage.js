@@ -26,9 +26,9 @@ const ParallaxImage = ({
   titleStyle,
   subTitleStyle,
   imageStyle,
+  parallaxHeaderHeight,
 }) => {
   const titleWords = title?.split(" ");
-
   return (
     <View style={{ height: DEVICE_HEIGHT / 3, position: "relative" }}>
       <View
@@ -37,7 +37,7 @@ const ParallaxImage = ({
           top:
             titleWords?.length > 1 && title?.length > 20
               ? 100 - titleWords?.length * 5
-              : 100,
+              : parallaxHeaderHeight / 2 - 10,
           zIndex: 1,
           width: "100%",
           alignItems: "center",
@@ -66,9 +66,9 @@ const ParallaxImage = ({
           )
         )}
       </View>
-      <View style={{ backgroundColor: theme.colors.imageOpacityColor }}>
+      {/* <View style={{ backgroundColor: theme.colors.imageOpacityColor }}>
         {getImage(image, imageStyle)}
-      </View>
+      </View> */}
     </View>
   );
 };

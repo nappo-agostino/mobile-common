@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, ScrollView } from "react-native";
+import { NavigationContext } from "@react-navigation/native";
 import TextInput from "./TextInput";
-import icons from "../../../assets/images/textInput";
+import icons from "../../../assets/images/text-input";
 import theme from "../../../styles/theme";
+import { Button } from "../../../components/shared";
 
 const TextInputExample = () => {
   const [email, setEmail] = React.useState(null);
   const [password, setPassword] = React.useState(null);
   const [text, setText] = React.useState(null);
+
+  const navigation = useContext(NavigationContext);
   return (
     <View style={{ flex: 1, margin: 10 }}>
+      <Button
+        text="button"
+        onPress={() =>
+          navigation.navigate("TextInputStack", { screen: "SearchBar" })
+        }
+      />
       <TextInput
         leftIcon={icons.userIcon}
         placeholder="email"
