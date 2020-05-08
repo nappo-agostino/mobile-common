@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import OrderCard from "../../components/shared/cards/OrderCard";
+import OrderCard from "../../components/cards/OrderCard";
 import theme from "../../styles/theme";
 
 const OrderCardExample = () => {

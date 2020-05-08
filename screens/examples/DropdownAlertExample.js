@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { View } from "react-native";
-import { DropdownAlert, StyledText } from "../../components/shared";
+import { DropdownAlert, StyledText } from "../../components";
 import Button from "../../utils/components/Button";
 
 const DropdownAlertExample = () => {

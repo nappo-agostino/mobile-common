@@ -3,11 +3,11 @@ import * as React from "react";
 
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
-import { TabBarIcon } from "../components/shared";
+import { TabBarIcon } from "../components";
 
 import arrows from "../assets/images/arrows";
 import HomeStack from "./stacks/HomeStack";
-import Header from "../components/shared/Header";
+import Header from "../components/Header";
 import {
   TextInputStack,
   SearchBarStack,

@@ -1,7 +1,7 @@
 import React from "react";
-import { View, ScrollView } from "react-native";
-import { WithIconRow } from "../../components/shared";
-import filterIcon from "../../assets/images/filter-icon.svg";
+import { ScrollView } from "react-native";
+import { WithIconRow } from "../../components";
+import filterIcon from "../../assets/images/filter/filter-icon.svg";
 
 const RowExample = () => {
   return (

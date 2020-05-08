@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import RadioCard from "../../../../components/shared/cards/RadioCard";
+import React from "react";
+import RadioCard from "../../../../components/cards/RadioCard";
 import theme from "../../../../styles/theme";
 
 const AddressStep = ({ selectedAddress, onAddressPress }) => {

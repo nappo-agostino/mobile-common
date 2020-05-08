@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as CustomButton } from "../../components/shared";
+import { Button as CustomButton } from "../../components";
 
 const Button = ({ onPress }) => {
   return (

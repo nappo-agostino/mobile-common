@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Header from "../../components/shared/Header";
+import Header from "../../components/Header";
 import { DropdownAlertExample } from "../../screens/examples";
 
 const Stack = createStackNavigator();

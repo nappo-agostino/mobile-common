@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { CheckBox, StyledText, RadioButton } from "../../components/shared";
+import { CheckBox, StyledText, RadioButton } from "../../components";
 
 const CheckBoxAndRadioExample = (props) => {
   const [checkBox, setCheckBox] = useState(false);

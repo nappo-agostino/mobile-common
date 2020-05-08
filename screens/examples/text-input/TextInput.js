@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextInput as CustomTextInput } from "../../../components/shared";
+import { TextInput as CustomTextInput } from "../../../components";
 import {
   textInputProps,
   defaultTextInputProps,
   defaultBorderProps,
-} from "../../../components/shared/proptypes";
+} from "../../../components/proptypes";
 import theme from "../../../styles/theme";
 import { APP_TYPES } from "../../../app.types";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, View, TouchableOpacity } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../../screens/HomeScreen";
-import Header from "../../components/shared/Header";
+import Header from "../../components/Header";
 import { SearchBarExample } from "../../screens/examples";
 
 const Stack = createStackNavigator();

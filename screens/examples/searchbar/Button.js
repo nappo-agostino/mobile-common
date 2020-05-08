@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { Button as CustomButton, StyledText } from "../../../components/shared";
+import { Button as CustomButton, StyledText } from "../../../components";
 import { APP_TYPES } from "../../../app.types";
 import theme from "../../../styles/theme";
 

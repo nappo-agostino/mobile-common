@@ -3,7 +3,7 @@ import { View } from "react-native";
 import FirstRoute from "./routes/FirstRoute";
 import SecondRoute from "./routes/SecondRoute";
 
-import TabView from "../../../components/shared/TabView";
+import TabView from "../../../components/TabView";
 import theme from "../../../styles/theme";
 
 const TabViewExample = () => {

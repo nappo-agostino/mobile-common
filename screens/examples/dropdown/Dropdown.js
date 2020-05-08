@@ -1,6 +1,6 @@
 import React from "react";
 import { APP_TYPES } from "../../../app.types";
-import { Dropdown as CustomDropdown } from "../../../components/shared";
+import { Dropdown as CustomDropdown } from "../../../components";
 import arrows from "../../../assets/images/arrows";
 import theme from "../../../styles/theme";
 

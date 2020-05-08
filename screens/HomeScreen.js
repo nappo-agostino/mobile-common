@@ -2,7 +2,7 @@ import { NavigationContext } from "@react-navigation/native";
 import * as React from "react";
 import { View } from "react-native";
 
-import { StyledText, Button } from "../components/shared";
+import { StyledText, Button } from "../components";
 
 const OPTIONS = {
   TextInput: { key: "TextInput", stack: "TextInputStack" },

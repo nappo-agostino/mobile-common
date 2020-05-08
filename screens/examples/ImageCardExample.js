@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { ImageCard } from "../../components/shared";
-import { image } from "../../utils/costants";
+import { ImageCard } from "../../components";
+import { image } from "../../utils/constants";
 
 const ImageCardExample = () => {
   return (

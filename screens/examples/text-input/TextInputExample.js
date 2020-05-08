@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 import { NavigationContext } from "@react-navigation/native";
 import TextInput from "./TextInput";
 import icons from "../../../assets/images/text-input";
-import theme from "../../../styles/theme";
-import { Button } from "../../../components/shared";
+import { Button } from "../../../components";
 
 const TextInputExample = () => {
   const [email, setEmail] = React.useState(null);

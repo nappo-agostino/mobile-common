@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View } from "react-native";
-import { SearchBar, StyledText, BottomSheet } from "../../../components/shared";
+import { SearchBar, StyledText, BottomSheet } from "../../../components";
 import { APP_TYPES } from "../../../app.types";
 import theme from "../../../styles/theme";
 import Button from "./Button";

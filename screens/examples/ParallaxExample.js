@@ -1,9 +1,8 @@
 import React from "react";
-import { View, FlatList } from "react-native";
-import Parallax from "../../components/shared/parallax/Parallax";
-import { StyledText, SearchBar } from "../../components/shared";
-import { image } from "../../utils/costants";
-import { DEVICE_HEIGHT } from "../../utils/dimension";
+import { View } from "react-native";
+import Parallax from "../../components/parallax/Parallax";
+import { StyledText } from "../../components";
+import { image } from "../../utils/constants";
 
 const ParallaxExample = () => {
   return (

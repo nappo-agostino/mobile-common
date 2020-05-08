@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { StepperCounter } from "../../components/shared";
-import icon from "../../assets/images/filter-icon.svg";
+import { StepperCounter } from "../../components";
+import icon from "../../assets/images/filter/filter-icon.svg";
 
 const StepperCounterExample = () => {
   const [counter, setCounter] = useState(0);

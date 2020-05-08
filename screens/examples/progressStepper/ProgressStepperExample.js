@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View } from "react-native";
-import { ProgressSteppers } from "../../../components/shared";
+import { ProgressSteppers } from "../../../components";
 import theme from "../../../styles/theme";
 import checkIcon from "../../../assets/images/check.svg";
 import AddressStep from "./steps/AddressStep";
